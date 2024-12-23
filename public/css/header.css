@@ -1,0 +1,518 @@
+/* .page {
+  background-color: #151010;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.page .div {
+  background-color: #151010;
+  width: 1172px;
+  position: relative;
+} */
+.page .header {
+  position: absolute;
+  width: 1171px;
+  height: 121px;
+  top: -6px;
+  left: 0;
+  background-color: transparent;
+  box-shadow: 0px 4px 4px #00000040;
+}
+.page .overlap-wrapper {
+  position: absolute;
+  width: 1171px;
+  height: 75px;
+  top: 0;
+  left: 0;
+}
+.page .overlap {
+  position: relative;
+  height: 69px;
+  top: 6px;
+  background-color: #342f2f;
+}
+.page .tm-kim {
+  position: absolute;
+  width: 386px;
+  height: 34px;
+  top: 17px;
+  left: 512px;
+}
+.page .overlap-group {
+  position: relative;
+  width: 392px;
+  height: 42px;
+  left: -4px;
+  background-image: url(./img/rectangle-7.png);
+  background-size: 100% 100%;
+}
+.page .text-wrapper {
+  position: absolute;
+  width: 279px;
+  top: 6px;
+  left: 45px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #817a7a;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.page .group {
+  position: absolute;
+  width: 360px;
+  height: 24px;
+  top: 6px;
+  left: 13px;
+}
+.page .search {
+  position: absolute;
+  width: 25px;
+  height: 24px;
+  top: 0;
+  left: 0;
+}
+.page .notification-bing {
+  position: absolute;
+  width: 33px;
+  height: 24px;
+  top: 0;
+  left: 328px;
+}
+.page .btn {
+  position: absolute;
+  width: 226px;
+  height: 34px;
+  top: 17px;
+  left: 925px;
+}
+.page .ng-nhp {
+  width: 104px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 34px;
+}
+.page .btn-ng-nhp {
+  width: 106px;
+  transform: rotate(0.04deg);
+  height: 34px;
+}
+.page .div-wrapper {
+  position: relative;
+  width: 104px;
+  height: 34px;
+  background-color: #d9d9d9;
+  border-radius: 30px;
+  text-decoration: none;
+}
+.page .text-wrapper-2 {
+  position: absolute;
+  width: 96px;
+  top: 5px;
+  left: 8px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  text-decoration: none
+}
+.page .ng-k {
+  width: 102px;
+  top: 1px;
+  left: 124px;
+  position: absolute;
+  height: 34px;
+}
+.page .btn-ng-k {
+  width: 104px;
+  height: 34px;
+}
+.page .overlap-group-2 {
+  position: relative;
+  width: 102px;
+  height: 34px;
+  background-color: #d9d9d9;
+  border-radius: 30px;
+}
+.page .text-wrapper-3 {
+  position: absolute;
+  width: 72px;
+  top: 4px;
+  left: 20px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.page .thumb-apple-watch {
+  position: absolute;
+  width: 293px;
+  height: 63px;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+.page .overlap-group-wrapper {
+  position: absolute;
+  width: 1175px;
+  height: 46px;
+  top: 75px;
+  left: 0;
+}
+.page .overlap-2 {
+  position: relative;
+  width: 1171px;
+  height: 46px;
+  background: linear-gradient(
+    180deg,
+    rgb(13.45, 9.84, 9.84) 0%,
+    rgb(30.45, 22.37, 22.37) 100%
+  );
+}
+.page .XH {
+  position: absolute;
+  width: 149px;
+  height: 16px;
+  top: 9px;
+  left: 82px;
+}
+.page .text-wrapper-4 {
+  position: absolute;
+  width: 147px;
+  top: 0;
+  left: 0;
+  text-shadow: 0px 4px 4px #00000040;
+  font-family: "Tinos-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.page .frame {
+  position: absolute;
+  width: 89px;
+  height: 32px;
+  top: 7px;
+  left: 294px;
+}
+.page .menu {
+  width: 91px;
+  height: 32px;
+}
+.page .overlap-group-3 {
+  position: relative;
+  width: 89px;
+  height: 32px;
+}
+.page .text-wrapper-5 {
+  position: absolute;
+  width: 54px;
+  top: 2px;
+  left: 0;
+  font-family: "Tinos-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.page .chevron-down {
+  position: absolute;
+  width: 53px;
+  height: 32px;
+  top: 0;
+  left: 36px;
+}
+.page .nam-wrapper {
+  position: absolute;
+  width: 85px;
+  height: 32px;
+  top: 7px;
+  left: 432px;
+}
+.page .nam {
+  width: 87px;
+  height: 32px;
+}
+.page .overlap-group-4 {
+  position: relative;
+  width: 85px;
+  height: 32px;
+}
+.page .text-wrapper-6 {
+  position: absolute;
+  width: 45px;
+  top: 2px;
+  left: 0;
+  font-family: "Tinos-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.page .img {
+  left: 32px;
+  position: absolute;
+  width: 53px;
+  height: 32px;
+  top: 0;
+}
+.page .n-wrapper {
+  position: absolute;
+  width: 67px;
+  height: 32px;
+  top: 7px;
+  left: 568px;
+}
+.page .n {
+  width: 69px;
+  height: 32px;
+}
+.page .overlap-group-5 {
+  position: relative;
+  width: 67px;
+  height: 32px;
+}
+.page .text-wrapper-7 {
+  position: absolute;
+  width: 28px;
+  top: 2px;
+  left: 0;
+  font-family: "Tinos-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.page .chevron-down-2 {
+  left: 14px;
+  position: absolute;
+  width: 53px;
+  height: 32px;
+  top: 0;
+}
+.page .luxury {
+  position: absolute;
+  width: 68px;
+  height: 16px;
+  top: 9px;
+  left: 670px;
+}
+.page .text-wrapper-8 {
+  position: absolute;
+  width: 66px;
+  top: 0;
+  left: 0;
+  font-family: "Tinos-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.page .text-wrapper-9 {
+  position: absolute;
+  width: 108px;
+  top: 9px;
+  left: 818px;
+  font-family: "Tinos-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.page .text-wrapper-10 {
+  position: absolute;
+  width: 105px;
+  top: 10px;
+  left: 1007px;
+  font-family: "Tinos-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+/* Hiệu ứng cho nút Đăng nhập và Đăng ký */
+.btn-ng-nhp:hover .text-wrapper-2, 
+.btn-ng-k:hover .text-wrapper-3 {
+  color: #ffffff;
+  background-color: #007bff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  transition: all 0.3s ease;
+}
+
+/* Hiệu ứng cho Xu hướng 2025 */
+.XH:hover .text-wrapper-4 {
+  color: #007bff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Hiệu ứng cho Menu */
+.menu:hover .text-wrapper-5 {
+  color: #007bff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.menu:hover .chevron-down {
+transform: rotate(180deg);
+transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng cho Nam */
+.nam:hover .text-wrapper-6 {
+  color: #007bff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.nam:hover .img {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng cho Nữ */
+.n:hover .text-wrapper-7 {
+  color: #007bff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.n:hover .chevron-down-2 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng cho Luxury */
+.luxury:hover .text-wrapper-8 {
+  color: #007bff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Hiệu ứng cho các mục "Cũ cao cấp" và "Treo tường" */
+.text-wrapper-9:hover, .text-wrapper-10:hover {
+  color: #007bff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Định dạng dropdown mặc định */
+.page .dropdown {
+display: none; /* Ẩn dropdown */
+position: absolute;
+top: 100%; /* Hiển thị ngay dưới mục menu */
+left: 0;
+background-color: #555;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+z-index: 1000;
+opacity: 0;
+transform: translateY(-10px);
+transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hiển thị dropdown khi hover vào mục cha */
+.page .menu:hover .dropdown,
+.page .nam:hover .dropdown,
+.page .n:hover .dropdown {
+display: block;
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Định dạng nội dung bên trong dropdown */
+.page .dropdown-column {
+color: #fff;
+padding: 10px;
+min-width: 150px;
+}
+
+.page .dropdown-column h3 {
+margin: 0 0 10px;
+color: #f1c40f;
+font-size: 16px;
+}
+
+.page .dropdown-column ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.page .dropdown-column ul li {
+margin: 5px 0;
+font-size: 14px;
+}
+
+.page .dropdown-column ul li:hover {
+text-decoration: underline;
+cursor: pointer;
+}
+
+/* Đảm bảo các thẻ cha định vị chính xác */
+.page .menu,
+.page .nam,
+.page .n {
+position: relative; /* Định vị cha để dropdown có vị trí đúng */
+display: inline-block; /* Các mục nằm trên một dòng */
+}
+
+/* Search bar styling */
+.page .tm-kim input[type="text"] {
+width: 100%;
+height: 100%;
+border: none;
+border-radius: 20px;
+padding: 5px 10px;
+font-size: 16px;
+color: #000;
+}
+.page .tm-kim input[type="text"]::placeholder {
+color: #817a7a;
+}
+.page .tm-kim input[type="text"]:focus {
+outline: none;
+border: 2px solid #f1c40f;
+}
+
+/* Style for the search icon in the search bar */
+.tm-kim .form-group {
+  position: relative;
+}
+
+.tm-kim .search-icon {
+  position: absolute;
+  right: 10px; /* Adjust this value for spacing */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; /* Adjust the size */
+  height: 20px;
+  pointer-events: none; /* Prevents click events */
+}
+
+.tm-kim input.form-control {
+  padding-right: 40px; /* Create space for the icon */
+}
