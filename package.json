@@ -1,0 +1,35 @@
+{
+  "name": "web-tmdt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cloudinary": "^2.5.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.18.1",
+    "md5": "^2.3.0",
+    "method-override": "^3.0.0",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.2",
+    "mongoose-slug-updater": "^3.3.0",
+    "multer": "^1.4.5-lts.1",
+    "product-management": "file:",
+    "pug": "^3.0.3",
+    "streamifier": "^0.1.1",
+    "tinymce": "^7.6.0",
+    "web-tmdt": "file:"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
