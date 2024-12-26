@@ -18,7 +18,9 @@
     height: 333px;
     top: 2489px;
     left: 0;
-    background-color: #0c0000;
+    background-color: #323232;
+
+
 }
 .page .image-6 {
     width: 356px;
@@ -27,6 +29,7 @@
     left: 401px;
     position: absolute;
     object-fit: cover;
+    background-color: #0c0000;
   }
   
 .page .h-tr-kh {
