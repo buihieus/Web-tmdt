@@ -1,7 +1,7 @@
 @import './header.css';
 @import './footer.css';
 body {
-  background-color: black;
+  background-color: #151010;
   color: white; /* Để chữ hiển thị rõ trên nền đen */
 }
 
