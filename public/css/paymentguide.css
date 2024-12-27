@@ -1,0 +1,230 @@
+.payment-guide {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Tinos', serif;
+    color: #FFFFFF;
+    background-color: #151010;
+    margin-top: 117px;
+  }
+  
+  .guide-title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #F8E110;
+  }
+  
+  .payment-process,
+  .payment-instructions,
+  .refund-policy {
+    margin-bottom: 60px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #F8E110;
+    margin-bottom: 30px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    color: #F8E110;
+    margin-bottom: 20px;
+  }
+  
+  .payment-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .method {
+    background-color: #343030;
+    padding: 25px;
+    border-radius: 10px;
+  }
+  
+  .method img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+  
+  .method ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .method li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .method li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #F8E110;
+  }
+  
+  .instruction-block {
+    background-color: #343030;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .location {
+    margin-bottom: 30px;
+  }
+  
+  .location img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+  
+  .location h4 {
+    color: #F8E110;
+    margin-bottom: 10px;
+  }
+  
+  .card-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-types img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .card-payment-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .card-payment-steps img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .bank-info {
+    background-color: #151010;
+    padding: 30px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .bank-info img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .account-details p {
+    margin-bottom: 15px;
+  }
+  
+  .online-payment {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .step {
+    text-align: center;
+  }
+  
+  .step img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+  
+  .refund-times {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .refund-type {
+    background-color: #343030;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .refund-type img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 20px;
+  }
+  
+  .refund-type h3 {
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 768px) {
+    .payment-guide {
+        padding: 20px;
+    }
+  
+    .guide-title {
+        font-size: 28px;
+    }
+  
+    h2 {
+        font-size: 22px;
+    }
+  
+    h3 {
+        font-size: 18px;
+    }
+  
+    .instruction-block {
+        padding: 20px;
+    }
+  
+    .bank-info {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+  
+    .card-types {
+        justify-content: center;
+    }
+  
+    .card-types img {
+        height: 40px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+  }

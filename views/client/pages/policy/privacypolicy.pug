@@ -1,0 +1,84 @@
+extends ../../layouts/default.pug
+
+block main
+  // Kết nối với tệp CSS
+  link(rel="stylesheet", href="/css/privacypolicy.css")
+  main.privacy-content(
+    aria-labelledby="privacy-title"
+    role="main"
+  )
+    h1#privacy-title.privacy-title(tabindex="0") Chính sách bảo mật
+
+    article.privacy-section
+      h2#collection-purpose.section-title(tabindex="0") Mục đích và phạm vi thu thập
+      .section-content
+        p
+          | Việc thu thập dữ liệu chủ yếu trên website topzone.vn bao gồm: email, điện thoại, địa chỉ khách hàng. Đây là các thông tin topzone.vn cần khách hàng cung cấp bắt buộc khi đăng ký sử dụng dịch vụ và topzone.vn liên hệ xác nhận khi khách hàng đăng ký sử dụng dịch vụ tại topzone.vn nhằm đảm bảo quyền lợi cho người tiêu dùng.
+        p
+          | Trong quá trình giao dịch thanh toán tại website topzone.vn, chúng tôi chỉ lưu giữ thông tin chi tiết về đơn hàng đã thanh toán của khách hàng, các thông tin về số tài khoản ngân hàng của khách hàng sẽ không được lưu giữ.
+        p
+          | Khách hàng sẽ tự chịu trách nhiệm về bảo mật và lưu giữ mọi hoạt động sử dụng dịch vụ các thông tin khi gửi liên hệ và hộp thư điện tử của mình. Ngoài ra, khách hàng có trách nhiệm thông báo kịp thời cho website topzone.vn về những hành vi sử dụng trái phép, lạm dụng, vi phạm bảo mật, lưu giữ tên đăng ký và mật khẩu của bên thứ ba để có biện pháp giải quyết phù hợp.
+
+      h2#usage-scope.section-title(tabindex="0") Phạm vi sử dụng thông tin
+      .section-content
+        p Công ty sử dụng thông tin thành viên cung cấp để:
+        ul
+          li Cung cấp thông tin về sản phẩm, dịch vụ đến khách hàng
+          li Giao hàng cho khách hàng
+          li
+            | Gửi các thông báo về các hoạt động trao đổi thông tin giữa thành viên và website topzone.vn như các chương trình khuyến mãi, tri ân khách hàng
+          li
+            | Ngăn ngừa các hoạt động phá hủy tài khoản người dùng của thành viên hoặc các hoạt động giả mạo thành viên
+          li Liên lạc và giải quyết với thành viên trong những trường hợp đặc biệt
+          li
+            | Không sử dụng thông tin cá nhân của thành viên ngoài mục đích xác nhận và liên hệ có liên quan đến giao dịch tại topzone.vn
+
+      h2#storage-duration.section-title(tabindex="0") Thời gian lưu trữ thông tin
+      .section-content
+        p
+          | Dữ liệu cá nhân của thành viên sẽ được lưu trữ cho đến khi có yêu cầu hủy bỏ. Còn lại trong mọi trường hợp thông tin cá nhân thành viên sẽ được bảo mật trên máy chủ của topzone.vn.
+
+      h2#access-scope.section-title(tabindex="0") Những người hoặc tổ chức có thể được tiếp cận với thông tin cá nhân
+      .section-content
+        p
+          | Đối tượng được tiếp cận với thông tin cá nhân của khách hàng/thành viên thuộc một trong những trường hợp sau:
+        ul
+          li Công ty TNHH Mrtiến Watch
+          li
+            | Các đối tác có ký hợp đồng thực hiện một phần dịch vụ do Công ty TNHH Topzone Watch cung cấp
+          li
+            | Cơ quan nhà nước khi có yêu cầu Công ty cung cấp thông tin người dùng để phục vụ quá trình điều tra
+          li Người mua và người bán xảy ra tranh chấp và yêu cầu Công ty là đơn vị hòa giải
+
+      h2#company-address.section-title(tabindex="0") Địa chỉ của đơn vị thu thập và quản lý thông tin cá nhân
+      .section-content
+        address
+          p
+            strong CÔNG TY TNHH Topzone WATCH
+          p Địa chỉ: số 4, ngõ Y, Vạn Phúc, P. Kim Mã, Q.Ba Đình, Tp. Hà Nội
+          p
+            | Email:
+            a.contact-link(href="mailto:topzone@gmail.com") topzone@gmail.com
+          p
+            | Điện thoại:
+            a.contact-link(href="tel:0936678158") 0936 678 158
+
+      h2#privacy-commitment.section-title(tabindex="0") Cam kết bảo mật thông tin cá nhân khách hàng
+      .section-content
+        p
+          | Thông tin cá nhân của khách hàng tại topzone.vn được topzone.vn cam kết bảo mật tuyệt đối theo chính sách bảo vệ thông tin cá nhân. Việc thu thập và sử dụng thông tin của mỗi khách hàng chỉ được thực hiện khi có sự đồng ý của khách hàng đó trừ những trường hợp pháp luật có quy định khác.
+        p
+          | Không sử dụng, không chuyển giao, cung cấp hay tiết lộ cho bên thứ 3 nào về thông tin cá nhân của khách hàng khi không có sự cho phép đồng ý từ khách hàng.
+        p
+          | Trong trường hợp máy chủ lưu trữ thông tin bị hacker tấn công dẫn đến mất mát dữ liệu cá nhân khách hàng, topzone.vn sẽ có trách nhiệm thông báo vụ việc cho cơ quan chức năng điều tra xử lý kịp thời và thông báo cho khách hàng được biết.
+        p
+          | Bảo mật tuyệt đối mọi thông tin giao dịch trực tuyến của khách hàng bao gồm thông tin hóa đơn kế toán chứng từ số hóa trên topzone.vn.
+
+      h2#complaint-mechanism.section-title(tabindex="0") Cơ chế tiếp nhận và giải quyết khiếu nại
+      .section-content
+        p
+          | Thành viên có quyền gửi khiếu nại về việc lộ thông tin cá nhân cho bên thứ 3 đến Ban quản trị của Sàn giao dịch thương mại điện tử topzone.vn đến địa chỉ Công ty hoặc qua email:
+          a.contact-link(href="mailto:topzone@gmail.com") topzone@gmail.com
+        p
+          | Công ty có trách nhiệm thực hiện các biện pháp kỹ thuật, nghiệp vụ để xác minh các nội dung được phản ánh.
+        p Thời gian xử lý phản ánh liên quan đến thông tin cá nhân khách hàng là 15 ngày.
