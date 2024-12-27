@@ -1,0 +1,384 @@
+.delivery-policy {
+    background: rgba(21, 16, 16, 1);
+    display: flex;
+    padding-bottom: 45px;
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 117px;
+  }
+  
+  .header {
+    background: rgba(52, 48, 48, 1);
+    display: flex;
+    width: 1171px;
+    max-width: 100%;
+    gap: 20px;
+    font: 400 18px/1.5 Tinos, sans-serif;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 28px 6px 0;
+  }
+  
+  .logo {
+    aspect-ratio: 4.65;
+    object-fit: contain;
+    width: 293px;
+  }
+  
+  .header-content {
+    display: flex;
+    gap: 40px 44px;
+    flex-wrap: wrap;
+    margin: auto 0;
+  }
+  
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font: 400 18px/1.5 Inter, sans-serif;
+    color: rgba(130, 123, 123, 1);
+    flex-grow: 1;
+  }
+  
+  .search-box {
+    border-radius: 20px;
+    background: rgba(255, 249, 249, 1);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    gap: 25px;
+    flex-grow: 1;
+    padding: 6px 12px;
+  }
+  
+  .search-input-wrapper {
+    display: flex;
+    gap: 8px;
+    flex-grow: 1;
+  }
+  
+  .search-icon {
+    aspect-ratio: 1.04;
+    object-fit: contain;
+    width: 24px;
+  }
+  
+  .search-input {
+    border: none;
+    background: transparent;
+    flex-grow: 1;
+    font: inherit;
+    color: inherit;
+  }
+  
+  .voice-icon {
+    aspect-ratio: 1.43;
+    object-fit: contain;
+    width: 33px;
+  }
+  
+  .cart-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 36px;
+    border-radius: 5px;
+  }
+  
+  .user-wrapper {
+    display: flex;
+    gap: 17px;
+    font: 400 18px/1.5 Tinos, sans-serif;
+    color: #fff;
+  }
+  
+  .user-name {
+    margin-top: 14px;
+  }
+  
+  .user-avatar {
+    aspect-ratio: 1.07;
+    object-fit: contain;
+    width: 44px;
+  }
+  
+  .nav-menu {
+    display: flex;
+    width: 100%;
+    gap: 40px 88px;
+    color: #fff;
+    flex-wrap: wrap;
+    padding: 7px 78px;
+    font: 400 20px/1.5 Tinos, sans-serif;
+  }
+  
+  .nav-items {
+    display: flex;
+    gap: 35px;
+    flex-grow: 1;
+  }
+  
+  .trend-text {
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    flex-grow: 1;
+  }
+  
+  .nav-icon {
+    aspect-ratio: 2.78;
+    object-fit: contain;
+    width: 89px;
+  }
+  
+  .nav-categories {
+    display: flex;
+    gap: 40px 100px;
+  }
+  
+  .policy-title {
+    color: #fff;
+    text-align: center;
+    margin: 28px 0;
+    font: 400 20px/1.5 Tinos, sans-serif;
+  }
+  
+  .policy-content {
+    z-index: 10;
+    display: flex;
+    margin-top: 72px;
+    width: 100%;
+    flex-direction: column;
+    padding: 0 41px;
+  }
+  
+  .policy-text {
+    color: #fff;
+    margin-left: 18px;
+    font: 400 20px/1.5 Tinos, sans-serif;
+  }
+  
+  .policy-image {
+    aspect-ratio: 3.61;
+    object-fit: contain;
+    width: 100%;
+    margin-top: 55px;
+  }
+  
+  .shipping-title {
+    color: #fff;
+    margin: 34px 0 0 11px;
+    font: 400 20px/1.5 Tinos, sans-serif;
+  }
+  
+  .shipping-image {
+    aspect-ratio: 1.81;
+    object-fit: contain;
+    width: 100%;
+    margin-top: 34px;
+  }
+  
+  .brand-images {
+    align-self: center;
+    margin-top: 140px;
+    width: 100%;
+    max-width: 946px;
+  }
+  
+  .brand-row {
+    gap: 20px;
+    display: flex;
+  }
+  
+  .brand-col {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+  }
+  
+  .brand-logo {
+    aspect-ratio: 3.33;
+    object-fit: contain;
+    width: 200px;
+    border-radius: 20px;
+    max-width: 100%;
+  }
+  
+  .brand-banner {
+    background: rgba(16, 1, 1, 1);
+    display: flex;
+    margin-top: -37px;
+    width: 1157px;
+    max-width: 100%;
+    height: 127px;
+  }
+  
+  .footer {
+    background: rgba(12, 0, 0, 1);
+    z-index: 10;
+    display: flex;
+    margin-top: -17px;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 76px 20px;
+  }
+  
+  .footer-logo {
+    aspect-ratio: 4.05;
+    object-fit: contain;
+    width: 356px;
+    border-radius: 10px;
+    align-self: center;
+    max-width: 100%;
+  }
+  
+  .footer-content {
+    margin-top: 39px;
+  }
+  
+  .footer-row {
+    gap: 20px;
+    display: flex;
+  }
+  
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 25%;
+  }
+  
+  .footer-section {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    font: 400 16px/1.5 Tinos, sans-serif;
+  }
+  
+  .footer-heading {
+    color: rgba(248, 225, 16, 1);
+    font-size: 20px;
+  }
+  
+  .footer-links {
+    display: flex;
+    margin-top: 19px;
+    flex-direction: column;
+    color: #fff;
+    padding: 0 15px;
+  }
+  
+  .footer-link {
+    margin-top: 24px;
+  }
+  
+  .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    margin: 14px 0 0 12px;
+  }
+  
+  .social-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 36px;
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+  
+  @media (max-width: 991px) {
+    .header {
+      padding-right: 20px;
+    }
+    
+    .header-content {
+      max-width: 100%;
+    }
+    
+    .nav-menu {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+    
+    .policy-content {
+      max-width: 100%;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+    
+    .policy-text {
+      max-width: 100%;
+    }
+    
+    .policy-image {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+    
+    .shipping-title {
+      margin-left: 10px;
+    }
+    
+    .shipping-image {
+      max-width: 100%;
+    }
+    
+    .brand-images {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+    
+    .brand-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    
+    .brand-col {
+      width: 100%;
+    }
+    
+    .brand-logo {
+      margin-top: 40px;
+    }
+    
+    .footer {
+      max-width: 100%;
+      margin-right: 8px;
+      padding: 0 20px;
+    }
+    
+    .footer-content {
+      max-width: 100%;
+    }
+    
+    .footer-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    
+    .footer-col {
+      width: 100%;
+    }
+    
+    .footer-section {
+      margin-top: 31px;
+    }
+    
+    .footer-heading {
+      margin-right: 10px;
+    }
+    
+    .social-icons {
+      margin-left: 10px;
+    }
+  }

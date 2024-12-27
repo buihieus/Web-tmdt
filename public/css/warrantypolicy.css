@@ -1,0 +1,176 @@
+.warranty-policy {
+    background: rgba(21, 16, 16, 1);
+    display: flex;
+    padding-bottom: 60px;
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 117px;
+  }
+  
+  .warranty-title {
+    color: #fff;
+    align-self: center;
+    margin-top: 19px;
+    font: 400 24px/1.5 Tinos, sans-serif;
+  }
+  
+  .warranty-content {
+    display: flex;
+    margin-top: 19px;
+    width: 100%;
+    flex-direction: column;
+    font: 400 20px/1.5 sans-serif;
+    color: #fff;
+    padding: 0 55px;
+  }
+  
+  .warranty-description {
+    font-family: Tinos, sans-serif;
+    margin-left: 18px;
+  }
+  
+  .warranty-image {
+    aspect-ratio: 1.99;
+    object-fit: contain;
+    width: 100%;
+    margin-top: 19px;
+  }
+  
+  .warranty-image-2 {
+    aspect-ratio: 1.32;
+    object-fit: contain;
+    width: 100%;
+  }
+  
+  .warranty-image-3 {
+    aspect-ratio: 1.49;
+    object-fit: contain;
+    width: 100%;
+  }
+  
+  .warranty-note {
+    font-family: Inter, sans-serif;
+    margin-top: 15px;
+  }
+  
+  .brand-section {
+    background: rgba(16, 1, 1, 1);
+    margin-top: 161px;
+    width: 1157px;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 13px 80px 0;
+  }
+  
+  .brand-grid {
+    gap: 20px;
+    display: flex;
+  }
+  
+  .brand-logo {
+    aspect-ratio: 3.33;
+    object-fit: contain;
+    width: 200px;
+    border-radius: 20px;
+    max-width: 100%;
+    align-self: stretch;
+    margin: auto 0;
+  }
+  
+  .brand-logo-2 {
+    aspect-ratio: 1.69;
+    object-fit: contain;
+    width: 140px;
+    border-radius: 20px;
+    max-width: 100%;
+    align-self: stretch;
+    margin: auto 0;
+  }
+  
+  .brand-logo-3 {
+    aspect-ratio: 1.27;
+    object-fit: contain;
+    width: 130px;
+    border-radius: 20px;
+    margin-top: 12px;
+    max-width: 100%;
+    flex: 1;
+  }
+  
+  .brand-logo-4 {
+    aspect-ratio: 1.58;
+    object-fit: contain;
+    width: 180px;
+    border-radius: 20px;
+    max-width: 100%;
+    flex: 1;
+  }
+  
+  .brand-logo-5 {
+    aspect-ratio: 2.23;
+    object-fit: contain;
+    width: 178px;
+    border-radius: 20px;
+    max-width: 100%;
+  }
+  
+  @media (max-width: 991px) {
+    .header {
+      padding-right: 20px;
+    }
+    
+    .search-section {
+      max-width: 100%;
+    }
+    
+    .nav-menu {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+    
+    .nav-items {
+      max-width: 100%;
+    }
+    
+    .warranty-content {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+    
+    .warranty-description {
+      max-width: 100%;
+    }
+    
+    .warranty-image,
+    .warranty-image-2,
+    .warranty-image-3 {
+      max-width: 100%;
+    }
+    
+    .warranty-note {
+      max-width: 100%;
+    }
+    
+    .brand-section {
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+    
+    .brand-grid {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
