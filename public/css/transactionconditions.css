@@ -1,186 +1,97 @@
-.shopping-guide {
-    background: rgba(21, 16, 16, 1);
-    display: flex;
-    padding-bottom: 41px;
-    flex-direction: column;
-    overflow: hidden;
-    margin-top: 117px;
-    height: auto;
+.terms-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #ffffff;
+  font-family: Tinos, system-ui, sans-serif;
+  line-height: 1.6;
+  background-color: rgba(21, 16, 16, 1);
+  margin-top: 117px;
+}
+
+.terms-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.terms-section {
+  margin-bottom: 40px;
+}
+
+.terms-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #f8e110;
+}
+
+.terms-section h3 {
+  font-size: 20px;
+  margin: 20px 0 15px;
+  color: #f8e110;
+}
+
+.terms-section p,
+.terms-section li {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.terms-section ul,
+.terms-section ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.terms-section ul li {
+  list-style-type: disc;
+}
+
+.terms-section ol li {
+  list-style-type: decimal;
+}
+
+.terms-section a {
+  color: #ffffff;
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.terms-section a:hover,
+.terms-section a:focus {
+  opacity: 0.8;
+}
+
+.terms-section a:focus-visible {
+  outline: 2px solid #f8e110;
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .terms-content {
+    padding: 20px;
   }
-  .logo {
-    aspect-ratio: 4.65;
-    object-fit: contain;
-    width: 293px;
+
+  .terms-title {
+    font-size: 28px;
   }
-  
-  .search-container {
-    display: flex;
-    gap: 40px 44px;
-    flex-wrap: wrap;
-    margin: auto 0;
+
+  .terms-section h2 {
+    font-size: 22px;
   }
-  
-  .search-box {
-    align-self: start;
-    display: flex;
-    align-items: start;
-    gap: 9px;
-    font-family: Inter, sans-serif;
-    color: rgba(130, 123, 123, 1);
-    flex: 1;
+
+  .terms-section h3 {
+    font-size: 18px;
   }
-  
-  .search-input-wrapper {
-    border-radius: 20px;
-    background: rgba(255, 249, 249, 1);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    gap: 25px;
-    flex: 1;
-    padding: 6px 12px;
+
+  .terms-section p,
+  .terms-section li {
+    font-size: 15px;
   }
-  
-  .search-icon {
-    aspect-ratio: 1.04;
-    object-fit: contain;
-    width: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terms-section a {
+    transition: none;
   }
-  
-  .user-actions {
-    display: flex;
-    gap: 17px;
-    font-family: Tinos, sans-serif;
-    color: #fff;
-  }
-  
-  .navigation {
-    display: flex;
-    width: 100%;
-    gap: 40px 88px;
-    color: #fff;
-    flex-wrap: wrap;
-    padding: 7px 78px;
-    font: 400 20px Tinos, sans-serif;
-  }
-  
-  .nav-items {
-    display: flex;
-    gap: 35px;
-    flex: 1;
-  }
-  
-  .trend-text {
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    flex: 1;
-  }
-  
-  .nav-categories {
-    align-self: start;
-    display: flex;
-    gap: 40px 100px;
-  }
-  
-  .page-title {
-    color: #fff;
-    align-self: center;
-    font: 400 20px Tinos, sans-serif;
-  }
-  
-  .content {
-    display: flex;
-    margin-top: 28px;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-    padding: 0 68px;
-    font: 400 20px Tinos, sans-serif;
-  }
-  
-  .step-description {
-    align-self: start;
-    color: aquamarine;
-  }
-  
-  .step-image {
-    aspect-ratio: 1.75;
-    object-fit: contain;
-    width: 100%;
-    max-width: 995px;
-    margin-top: 18px;
-  }
-  
-  .brand-section {
-    background: rgba(16, 1, 1, 1);
-    margin-top: 69px;
-    overflow: hidden;
-    padding: 13px 80px 0;
-  }
-  
-  .brand-grid {
-    gap: 20px;
-    display: flex;
-  }
-  
-  .brand-logo {
-    aspect-ratio: 3.33;
-    object-fit: contain;
-    width: 200px;
-    border-radius: 20px;
-  }
-  .social-icon {
-    aspect-ratio: 1;
-    object-fit: contain;
-    width: 36px;
-  }
-  
-  @media (max-width: 991px) {
-    .header {
-      padding-right: 20px;
-    }
-    
-    .search-container {
-      max-width: 100%;
-    }
-    
-    .navigation {
-      max-width: 100%;
-      padding: 0 20px;
-    }
-    
-    .content {
-      max-width: 100%;
-      padding: 0 20px;
-    }
-    
-    .step-image {
-      max-width: 100%;
-    }
-    
-    .brand-section {
-      max-width: 100%;
-      margin: 40px 7px 0 0;
-      padding: 0 20px;
-    }
-    
-    .brand-grid {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0;
-    }
-    
-    .footer {
-      max-width: 100%;
-      margin-top: 40px;
-      padding: 0 20px;
-    }
-    
-    .footer-content {
-      flex-direction: column;
-    }
-    
-    .footer-column {
-      width: 100%;
-      margin-top: 31px;
-    }
-  }
+}
