@@ -1,97 +1,111 @@
 extends ../../layouts/default.pug
 
 block main
-  .page
-    .div
-      .brand
-        .namewatch
-          img.image(src="img/image-16.png")
-          img.image-2(src="img/image-23.png")
-          img.image-3(src="img/image-18.png")
-          img.image-4(src="img/image-22.png")
-          img.image-5(src="img/image-17.png")
-      .sub
-        .sub-2
-          img.image-7(src="img/image-10.png")
-          img.CUSTOM-WATCHES-FOR(src="img/CUSTOM-WATCHES-FOR-ANY-OCCASION.png")
-        .sub-3
-          img.image-8(src="img/image-3-2.png")
-          .text-wrapper-16 OUR STORE
-          p.p
-            | Memphis clinched a spot in the play-in tournament with the victory, but the fight for seeding continues.
-            | The race for the No. 8 spot in the West -- and the safety net of having to win just one of two games to
-            | make the playoffs -- could come down to the regular season's final day, when Memphis and Golden State meet.
-            | The good thing for the Grizzlies is they don't have to leave home until that matchup as they have games
-            | against Dallas and two against Sacramento before the finale.
-    .list
-      .frame-wrapper
-        .frame-2
-          .obj
-            img.image-9(src="img/image-12.png")
-            .citizen-axiome Citizen AxiomE
-            .text-wrapper-17 $100.00
-          .obj-2
-            img.image-10(src="img/image-7.png")
-            .text-wrapper-18 Apple Watch Ultra 2
-            .text-wrapper-17 $110.00
-          .obj-3
-            img.image-11(src="img/image-6.png")
-            .text-wrapper-19 Xiaomi Readmi W3
-            .text-wrapper-17 $90.00
-          .obj-4
-            img.image-12(src="img/image-5.png")
-            .text-wrapper-20 Hampden
-            .text-wrapper-17 $89.60
-          .obj-5
-            img.image-13(src="img/image-21.png")
-            .text-wrapper-21 Apple Watch SE AL
-            .text-wrapper-17 $50.00
-          .obj-6
-            img.image-14(src="img/image-8.png")
-            .text-wrapper-22 Apple Watch S10
-            .text-wrapper-17 $200.00
-          .obj-7
-            img.image-15(src="img/image-11.png")
-            .text-wrapper-19 G-Schock G-Squad
-            .text-wrapper-17 $90.00
-          .obj-8
-            img.image-16(src="img/image-2.png")
-            .text-wrapper-23 MK Bradshaw
-            .text-wrapper-17 $79.60
-      .frame-3
-    .list-2
-      .frame-wrapper
-        .frame-2
-          .obj
-            img.image-9(src="img/image-12.png")
-            .citizen-axiome Citizen AxiomE
-            .text-wrapper-17 $100.00
-          .obj-2
-            img.image-10(src="img/image-5.png")
-            .text-wrapper-18 Apple Watch Ultra 2
-            .text-wrapper-17 $110.00
-          .obj-3
-            img.image-11(src="img/image-6.png")
-            .text-wrapper-19 Xiaomi Readmi W3
-            .text-wrapper-17 $90.00
-          .obj-4
-            img.image-12(src="img/image-7.png")
-            .text-wrapper-20 Hampden
-            .text-wrapper-17 $89.60
-          .obj-5
-            img.image-13(src="img/image-21.png")
-            .text-wrapper-21 Apple Watch SE AL
-            .text-wrapper-17 $50.00
-          .obj-6
-            img.image-14(src="img/image-8.png")
-            .text-wrapper-22 Apple Watch S10
-            .text-wrapper-17 $200.00
-          .obj-7
-            img.image-15(src="img/image-11.png")
-            .text-wrapper-19 G-Schock G-Squad
-            .text-wrapper-17 $90.00
-          .obj-8
-            img.image-16(src="img/image-2.png")
-            .text-wrapper-23 MK Bradshaw
-            .text-wrapper-17 $79.60
-      .frame-3
+ .content-wrapper
+  section.hero-section(aria-label="Featured Collection")
+    .hero-content
+      .hero-text
+        h1.hero-title CUSTOM WATCHES FOR ANY OCCASION
+        p.hero-subtitle Discover our exclusive collection of customizable timepieces
+        a.cta-button(href="#shop") Shop Now
+      .hero-image
+        img.hero-img(
+          alt="Luxury watch showcase" 
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/c2eee7634f55eec3aad317ccbdede93143bd3ea2d4cacb1727235240c3ebfc0f?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+          )
+  section.store-section(aria-label="About Our Store")
+    .store-content
+      .store-image
+        img.store-img(
+          alt="Our luxury watch store interior" 
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/442f837dd7728357e65e760c6629b5d190502b92dac6c1ce20c3073c0cb76357?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+          )
+      .store-info
+        h2.store-title OUR STORE
+        p.store-description
+          | Experience luxury timepieces in our premium showroom. Our expert staff provides personalized service to help you find the perfect watch that matches your style and preferences. Visit us to explore our extensive collection of prestigious brands and exclusive models.
+        a.store-cta(href="#visit") Visit Our Store
+  section.featured-products(aria-label="Featured Products")
+    .products-grid
+      article.product-card
+        .product-image
+          img.product-img(
+            alt="Citizen AxiomE Watch" 
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0eabc021e2ce41be106eedbe75b9a37f2ab5139712166adad6b25fe3e319df56?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+            )
+          .product-overlay
+            button.quick-view(aria-label="Quick view Citizen AxiomE") Quick View
+        .product-info
+          h3.product-title Citizen AxiomE
+          .product-meta
+            span.product-price $100.00
+            .product-rating
+              span.stars ★★★★★
+              span.rating-count (24)
+      article.product-card
+        .product-image
+          img.product-img(
+            alt="Hampden Classic Watch" 
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/dc70421d3ed7a7466fa3c3df00e6dba80b445066039e1e3d3c1dea8b49c61751?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+            )
+          .product-overlay
+            button.quick-view(aria-label="Quick view Hampden") Quick View
+        .product-info
+          h3.product-title Hampden
+          .product-meta
+            span.product-price $89.60
+            .product-rating
+              span.stars ★★★★☆
+              span.rating-count (18)
+      article.product-card
+        .product-image
+          img.product-img(
+            alt="Xiaomi Readmi W3 Smartwatch" 
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0b388de178928ef54d2d45d705faca90f65aac8e34649895c56b143c57b17c84?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+            )
+          .product-overlay
+            button.quick-view(aria-label="Quick view Xiaomi Readmi W3") Quick View
+        .product-info
+          h3.product-title Xiaomi Readmi W3
+          .product-meta
+            span.product-price $90.00
+            .product-rating
+              span.stars ★★★★★
+              span.rating-count (32)
+      article.product-card
+        .product-image
+          img.product-img(
+            alt="Apple Watch Ultra 2" 
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/c8cf8e4c088acbd1a91d679999e223792a7219a1c4278f96a94391647e8bbca5?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+            )
+          .product-overlay
+            button.quick-view(aria-label="Quick view Apple Watch Ultra 2") Quick View
+        .product-info
+          h3.product-title Apple Watch Ultra 2
+          .product-meta
+            span.product-price $110.00
+            .product-rating
+              span.stars ★★★★★
+              span.rating-count (45)
+  section.brand-section(aria-label="Featured Brands")
+    .brand-grid
+      img.brand-img(
+        alt="Luxury watch brand 1" 
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/8115c577639e44c7452e3a57bb2ba468e2b54f363177af0ada66fb2204af6a09?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+        )
+      img.brand-img(
+        alt="Luxury watch brand 2" 
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/02106a6d17a828a51dfbaf7fe4ac4fc94594761431690b4464d3d2cc818d7bbe?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+        )
+      img.brand-img(
+        alt="Luxury watch brand 3" 
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/f8820dcc94836778a67b0e566a135a0da77bc6f62cec417a309ed930f1469b87?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+        )
+      img.brand-img(
+        alt="Luxury watch brand 4" 
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/0eeb93f5a179f57d11c9240c417e8cd2059063db1adfe587b9b4719293e30107?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+        )
+      img.brand-img(
+        alt="Luxury watch brand 5" 
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/7035be5d159820fcee4447cfc3cdb40a8691318eee901f013255f72f52780e75?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+        )
