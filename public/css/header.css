@@ -20,7 +20,7 @@ body {
 }
 
 .header {
-  background-color: var(--secondary-color);
+  background-color: #323232;
   padding: 1rem 2rem;
 }
 
