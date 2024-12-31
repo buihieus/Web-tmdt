@@ -2,13 +2,21 @@ const Account = require("../../models/account.model");
 const systemConfig = require("../../config/system");
 const md5 = require("md5");
 //[GET] /admin/auth/login
-module.exports.login = (req, res) => {
-  if(req.cookies.token){
-    res.redirect(`${systemConfig.prefixAdmin}/dashboard`)
-  }else{
+module.exports.login = async (req, res) => {
+  try {
+    const token = req.cookies?.token;
+    if (token) {
+      const user = await Account.findOne({ token });
+      if (user) {
+        return res.redirect(`${systemConfig.prefixAdmin}/dashboard`);
+      }
+    }
     res.render("admin/pages/auth/login", {
-    pageTitle: "Đăng nhập",
-  });
+      pageTitle: "Đăng nhập",
+    });
+  } catch (error) {
+    console.error("Error in login function:", error);
+    res.status(500).send("Internal Server Error");
   }
 };
 //[POST] /admin/auth/login
