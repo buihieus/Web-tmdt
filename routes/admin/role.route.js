@@ -17,4 +17,11 @@ router.get("/permissions", controller.permissions);
 
 router.patch("/permissions", controller.permissionsPatch);
 
+// router.post("/delete/:id", controller.delete); // Xóa quyền
+
+router.post("/delete-permanent/:id", controller.deletePermanent); // Xóa vĩnh viễn quyền
+
+
+
+
 module.exports = router;
