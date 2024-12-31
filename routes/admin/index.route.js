@@ -5,12 +5,14 @@ const roleRoutes = require("./role.route")
 const accountRoutes = require("./account.route")
 const authRoutes = require("./auth.route")
 const systemConfig = require("../../config/system")
+const authMiddleware = require("../../middleware/admin/auth.middleware")
+
 module.exports = (app) => {
   const patchAdmin = systemConfig.prefixAdmin;
-  app.use(patchAdmin + '/dashboard', dashBoardRoutes);
-  app.use(patchAdmin + '/products', productRoutes);
-  app.use(patchAdmin + '/category', categoryRoutes);
-  app.use(patchAdmin + '/roles', roleRoutes);
-  app.use(patchAdmin + '/accounts', accountRoutes);
+  app.use(patchAdmin + '/dashboard',authMiddleware.requireAuth, dashBoardRoutes);
+  app.use(patchAdmin + '/products',authMiddleware.requireAuth, productRoutes);
+  app.use(patchAdmin + '/category',authMiddleware.requireAuth, categoryRoutes);
+  app.use(patchAdmin + '/roles',authMiddleware.requireAuth, roleRoutes);
+  app.use(patchAdmin + '/accounts',authMiddleware.requireAuth, accountRoutes);
   app.use(patchAdmin + '/auth', authRoutes);
 }
