@@ -2,10 +2,11 @@ body
   header.header
     link(rel="stylesheet" href="/css/header.css")
     .header-container
-      img.logo(
-        alt="Watch Store Logo" 
-        src="/img/thumb.png"
-        )
+      a(href="/")
+        img.logo(
+          alt="Watch Store Logo" 
+          src="/img/thumb.png"
+          )
       .search-container
         img.search-icon(
           alt="" 
@@ -21,12 +22,14 @@ body
           src="/img/voice-search.png"
           )
       .auth-buttons
-        button.auth-btn Đăng nhập
-        button.auth-btn Đăng ký
+        li
+          a.auth-btn(href="/user/login") Đăng nhập
+        li
+          a.auth-btn(href="/user/register") Đăng ký
   nav.nav-container
     ul.nav-list
       li.nav-item.trend-2025
-        a.nav-link(href="#") Xu hướng 2025
+        a.nav-link(href="trend2025") Xu hướng 2025
       li.nav-item
         a.nav-link(href="#") Menu
         .dropdown-menu
@@ -34,41 +37,41 @@ body
             h3.menu-heading Phổ biến nhất
             ul.menu-list
               li.menu-item
-                a.menu-link(href="#") Casio
+                a.menu-link(href="/casio") Casio
               li.menu-item
-                a.menu-link(href="#") Michael Kors
+                a.menu-link(href="/michaelkors") Michael Kors
               li.menu-item
-                a.menu-link(href="#") Fossil
+                a.menu-link(href="/fossil") Fossil
               li.menu-item
-                a.menu-link(href="#") Citizen
+                a.menu-link(href="/citizen") 'Citizen'
               li.menu-item
-                a.menu-link(href="#") Daniel Wellington
+                a.menu-link(href="/apple") Apple
           .menu-section
             h3.menu-heading Hàng cao cấp
             ul.menu-list
               li.menu-item
-                a.menu-link(href="#") Rolex
+                a.menu-link(href="/rolex") Rolex
               li.menu-item
-                a.menu-link(href="#") Cartier
+                a.menu-link(href="/cartier") Cartier
               li.menu-item
-                a.menu-link(href="#") Omega
+                a.menu-link(href="/omega") Omega
               li.menu-item
-                a.menu-link(href="#") Chanel
+                a.menu-link(href="/chanel") Chanel
               li.menu-item
-                a.menu-link(href="#") Longines
+                a.menu-link(href="/versace") Versace
           .menu-section
             h3.menu-heading Dòng đặc biệt
             ul.menu-list
               li.menu-item
-                a.menu-link(href="#") Baby-G
+                a.menu-link(href="/babyg") Baby-G
               li.menu-item
-                a.menu-link(href="#") Casio Sheen
+                a.menu-link(href="/CasioSheen") Casio Sheen
               li.menu-item
-                a.menu-link(href="#") Fossil Hybrid
+                a.menu-link(href="/FossilHybrid") Fossil Hybrid
               li.menu-item
-                a.menu-link(href="#") Swatch
+                a.menu-link(href="/Swatch") Swatch
               li.menu-item
-                a.menu-link(href="#") Tag Heuer
+                a.menu-link(href="/TagHeuer") Tag Heuer
       li.nav-item
         a.nav-link(href="#") Nam
         .dropdown-menu
@@ -76,41 +79,41 @@ body
             h3.menu-heading Phổ biến nhất
             ul.menu-list
               li.menu-item
-                a.menu-link(href="#") Casio
+                a.menu-link(href="/casio") Casio
               li.menu-item
-                a.menu-link(href="#") Michael Kors
+                a.menu-link(href="/MichaelKors") Michael Kors
               li.menu-item
-                a.menu-link(href="#") Fossil
+                a.menu-link(href="/Fossil") Fossil
               li.menu-item
-                a.menu-link(href="#") Citizen
+                a.menu-link(href="/Citizen") Citizen
               li.menu-item
-                a.menu-link(href="#") Daniel Wellington
+                a.menu-link(href="/apple") Apple
           .menu-section
             h3.menu-heading Hàng cao cấp
             ul.menu-list
               li.menu-item
-                a.menu-link(href="#") Rolex
+                a.menu-link(href="/Rolex") Rolex
               li.menu-item
-                a.menu-link(href="#") Cartier
+                a.menu-link(href="/Cartier") Cartier
               li.menu-item
-                a.menu-link(href="#") Omega
+                a.menu-link(href="/Omega") Omega
               li.menu-item
-                a.menu-link(href="#") Chanel
+                a.menu-link(href="/Chanel") Chanel
               li.menu-item
-                a.menu-link(href="#") Longines
+                a.menu-link(href="/versace") Versace
           .menu-section
             h3.menu-heading Dòng đặc biệt
             ul.menu-list
               li.menu-item
-                a.menu-link(href="#") Baby-G
+                a.menu-link(href="/babyg") Baby-G
               li.menu-item
-                a.menu-link(href="#") Casio Sheen
+                a.menu-link(href="/CasioSheen") Casio Sheen
               li.menu-item
-                a.menu-link(href="#") Fossil Hybrid
+                a.menu-link(href="/FossilHybrid") Fossil Hybrid
               li.menu-item
-                a.menu-link(href="#") Swatch
+                a.menu-link(href="/Swatch") Swatch
               li.menu-item
-                a.menu-link(href="#") Tag Heuer
+                a.menu-link(href="/TagHeuer") Tag Heuer
       li.nav-item
         a.nav-link(href="#") Nữ
         .dropdown-menu
@@ -118,41 +121,41 @@ body
             h3.menu-heading Phổ biến nhất
             ul.menu-list
               li.menu-item
-                a.menu-link(href="#") Casio
+                a.menu-link(href="/casio") Casio
               li.menu-item
-                a.menu-link(href="#") Michael Kors
+                a.menu-link(href="/MichaelKors") Michael Kors
               li.menu-item
-                a.menu-link(href="#") Fossil
+                a.menu-link(href="/Fossil") Fossil
               li.menu-item
-                a.menu-link(href="#") Citizen
+                a.menu-link(href="/Citizen") Citizen
               li.menu-item
-                a.menu-link(href="#") Daniel Wellington
+                a.menu-link(href="/apple") Apple
           .menu-section
             h3.menu-heading Hàng cao cấp
             ul.menu-list
               li.menu-item
-                a.menu-link(href="#") Rolex
+                a.menu-link(href="/Rolex") Rolex
               li.menu-item
-                a.menu-link(href="#") Cartier
+                a.menu-link(href="/Cartier") Cartier
               li.menu-item
-                a.menu-link(href="#") Omega
+                a.menu-link(href="/Omega") Omega
               li.menu-item
-                a.menu-link(href="#") Chanel
+                a.menu-link(href="/Chanel") Chanel
               li.menu-item
-                a.menu-link(href="#") Longines
+                a.menu-link(href="/versace") Versace
           .menu-section
             h3.menu-heading Dòng đặc biệt
             ul.menu-list
               li.menu-item
-                a.menu-link(href="#") Baby-G
+                a.menu-link(href="/babyg") Baby-G
               li.menu-item
-                a.menu-link(href="#") Casio Sheen
+                a.menu-link(href="/CasioSheen") Casio Sheen
               li.menu-item
-                a.menu-link(href="#") Fossil Hybrid
+                a.menu-link(href="/FossilHybrid") Fossil Hybrid
               li.menu-item
-                a.menu-link(href="#") Swatch
+                a.menu-link(href="/Swatch") Swatch
               li.menu-item
-                a.menu-link(href="#") Tag Heuer
+                a.menu-link(href="/TagHeuer") Tag Heuer
       li.nav-item
         a.nav-link(href="#") Luxury
       li.nav-item
