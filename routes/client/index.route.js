@@ -10,9 +10,15 @@ const privacypolicyRoute = require('./privacypolicy.route');
 const warrantypolicyRoute = require('./warrantypolicy.route');
 const returnpolicyRoute = require('./returnpolicy.route');
 const paymenttermsRoute = require('./paymentterms.route');
+
+const userRoute = require("./user.route");
+
+const userMiddleware = require("../../middleware/client/user.middleware.js");
+
 //sử dụng trong file index.js chính
 module.exports = (app) => {
   app.use('/', homeRoutes);
+  app.use(userMiddleware.infoUser);
 
   app.use('/products', productRoutes);
   app.use('/guidebuyonline',guidebuyonlineRoute);
@@ -23,4 +29,5 @@ module.exports = (app) => {
   app.use('/warrantypolicy', warrantypolicyRoute);
   app.use('/returnpolicy', returnpolicyRoute);
   app.use('/paymentterms', paymenttermsRoute);
+  app.use("/user", userRoute);
 }
