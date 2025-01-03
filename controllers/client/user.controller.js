@@ -47,7 +47,7 @@ module.exports.registerPost = async (req, res) => {
         console.log(newUser);
 
         res.cookie("tokenUser", newUser.tokenUser);
-
+        req.flash("success", "Đăng ký tài khoản thành công!");
         res.redirect("/");
     } catch (error) {
         console.error(error);
@@ -96,7 +96,7 @@ module.exports.loginPost = async (req, res) => {
                 maxAge: 24 * 60 * 60 * 1000 // Thời gian sống của cookie (1 ngày)
             });
         }
-
+        req.flash("success", "Đăng ký tài khoản thành công!");
         // Redirect đến trang chính hoặc dashboard
         return res.redirect("/");
 
