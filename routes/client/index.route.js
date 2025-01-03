@@ -10,7 +10,12 @@ const privacypolicyRoute = require('./privacypolicy.route');
 const warrantypolicyRoute = require('./warrantypolicy.route');
 const returnpolicyRoute = require('./returnpolicy.route');
 const paymenttermsRoute = require('./paymentterms.route');
-
+const omegaRoute = require("./omega.route");
+const trend2025Route = require("./trend2025.route");
+const appleRoute = require("./apple.route");
+const versaceRoute = require("./versace.route");
+const babygRoute = require("./babyg.route");
+const searchRoute = require("./search.route");
 const userRoute = require("./user.route");
 
 const userMiddleware = require("../../middleware/client/user.middleware.js");
@@ -30,4 +35,10 @@ module.exports = (app) => {
   app.use('/returnpolicy', returnpolicyRoute);
   app.use('/paymentterms', paymenttermsRoute);
   app.use("/user", userRoute);
+  app.use('/omega', omegaRoute);
+  app.use('/trend2025', trend2025Route);
+  app.use('/apple', appleRoute);
+  app.use('/versace', versaceRoute);
+  app.use('/babyg', babygRoute);
+  app.use('/search', searchRoute);
 }

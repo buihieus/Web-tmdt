@@ -1,0 +1,334 @@
+header.header(role="banner")
+  link(rel="stylesheet" href="/css/header.css")
+  .header-container
+    a.logo-link(href="/")
+      img.logo(
+        height="63" 
+        width="293" 
+        alt="Company logo" 
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/51f3c8fe6bc8ea0d7f6ba4fe42912ed869b6958b064712e79f5586d25a108ff1?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" 
+        loading="lazy"
+        )
+    .header-content
+      .search-section
+        form.search-box(action="search",method="GET")
+          .search-input-wrapper
+            img.search-icon(
+              height="24" 
+              width="24" 
+              aria-hidden="true" 
+              alt="" 
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/9dcf0f183b3e982981196017a1840af9a50d0fc77683363c65def76cbb6204f0?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" 
+              loading="lazy"
+              )
+            input.search-input(
+              aria-label="Tìm kiếm sản phẩm" 
+              placeholder="Tìm sản phẩm hoặc thương hiệu" 
+              type="search"
+              )
+          button.voice-search(
+            aria-label="Tìm kiếm bằng giọng nói" 
+            type="button"
+            )
+            img.voice-icon(
+              height="23" 
+              width="33" 
+              aria-hidden="true" 
+              alt="" 
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5f079c5b780373b077a91cbf6ed79a7dd586513ae59d767ffd209fab1098b10f?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" 
+              loading="lazy"
+              )
+        button.cart-button(
+          aria-label="Giỏ hàng, 0 sản phẩm" 
+          type="button"
+          )
+          img.cart-icon(
+            height="36" 
+            width="36" 
+            aria-hidden="true" 
+            alt="" 
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/a53073b0b5d64aceb4778af48ce07f0dbc562d59dbb550d88f014cdfeb270dcf?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" 
+            loading="lazy"
+            )
+          span.cart-count(aria-hidden="true") 0
+      .user-section
+        .user-dropdown
+          button.user-dropdown-btn(
+            aria-label="Menu tài khoản người dùng" 
+            aria-haspopup="true" 
+            aria-expanded="false" 
+            type="button"
+            )
+            span.username Name
+            img.user-icon(
+              height="41" 
+              width="44" 
+              aria-hidden="true" 
+              alt="" 
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/cae81ffecb40d0cc59fe6b010ff6777f8e66407a3a80e4e0bdcbd04277b483a6?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" 
+              loading="lazy"
+              )
+          .dropdown-menu1(
+            aria-label="Menu tài khoản" 
+            role="menu"
+            )
+            a.dropdown-item(
+              role="menuitem" 
+              href="/profile"
+              ) Thông tin tài khoản
+            a.dropdown-item(
+              role="menuitem" 
+              href="/orders"
+              ) Đơn hàng của tôi
+            a.dropdown-item(
+              role="menuitem" 
+              href="/wishlist"
+              ) Sản phẩm yêu thích
+            a.dropdown-item(
+              role="menuitem" 
+              href="/notifications"
+              ) Thông báo
+            .dropdown-divider(role="separator")
+            a.dropdown-item(
+              role="menuitem" 
+              href="/logout"
+              ) Đăng xuất
+  nav.navigation(aria-label="Menu chính")
+    ul.nav-list
+      li.nav-item
+        a.nav-link(href="/trends") Xu hướng 2025
+      li.nav-item
+        a.nav-link(
+          aria-haspopup="true" 
+          aria-expanded="false" 
+          href="#menu"
+          ) Menu
+        .mega-menu(
+          aria-label="Menu danh mục" 
+          role="menu"
+          )
+          .mega-menu-column
+            h3 Phổ biến nhất
+            a(
+              role="menuitem" 
+              href="/casio"
+              ) Casio
+            a(
+              role="menuitem" 
+              href="/michael-kors"
+              ) Michael Kors
+            a(
+              role="menuitem" 
+              href="/fossil"
+              ) Fossil
+            a(
+              role="menuitem" 
+              href="/citizen"
+              ) Citizen
+            a(
+              role="menuitem" 
+              href="/daniel-wellington"
+              ) Daniel Wellington
+          .mega-menu-column
+            h3 Hàng cao cấp
+            a(
+              role="menuitem" 
+              href="/rolex"
+              ) Rolex
+            a(
+              role="menuitem" 
+              href="/cartier"
+              ) Cartier
+            a(
+              role="menuitem" 
+              href="/omega"
+              ) Omega
+            a(
+              role="menuitem" 
+              href="/chanel"
+              ) Chanel
+            a(
+              role="menuitem" 
+              href="/longines"
+              ) Longines
+          .mega-menu-column
+            h3 Dòng đặc biệt
+            a(
+              role="menuitem" 
+              href="/baby-g"
+              ) Baby-G
+            a(
+              role="menuitem" 
+              href="/casio-sheen"
+              ) Casio Sheen
+            a(
+              role="menuitem" 
+              href="/fossil-hybrid"
+              ) Fossil Hybrid
+            a(
+              role="menuitem" 
+              href="/swatch"
+              ) Swatch
+            a(
+              role="menuitem" 
+              href="/tag-heuer"
+              ) Tag Heuer
+      li.nav-item
+        a.nav-link(
+          aria-haspopup="true" 
+          aria-expanded="false" 
+          href="#men"
+          ) Nam
+        .mega-menu(
+          aria-label="Menu đồng hồ nam" 
+          role="menu"
+          )
+          .mega-menu-column
+            h3 Phổ biến nhất
+            a(
+              role="menuitem" 
+              href="/casio"
+              ) Casio
+            a(
+              role="menuitem" 
+              href="/michael-kors"
+              ) Michael Kors
+            a(
+              role="menuitem" 
+              href="/fossil"
+              ) Fossil
+            a(
+              role="menuitem" 
+              href="/citizen"
+              ) Citizen
+            a(
+              role="menuitem" 
+              href="/daniel-wellington"
+              ) Daniel Wellington
+          .mega-menu-column
+            h3 Hàng cao cấp
+            a(
+              role="menuitem" 
+              href="/rolex"
+              ) Rolex
+            a(
+              role="menuitem" 
+              href="/cartier"
+              ) Cartier
+            a(
+              role="menuitem" 
+              href="/omega"
+              ) Omega
+            a(
+              role="menuitem" 
+              href="/chanel"
+              ) Chanel
+            a(
+              role="menuitem" 
+              href="/longines"
+              ) Longines
+          .mega-menu-column
+            h3 Dòng đặc biệt
+            a(
+              role="menuitem" 
+              href="/baby-g"
+              ) Baby-G
+            a(
+              role="menuitem" 
+              href="/casio-sheen"
+              ) Casio Sheen
+            a(
+              role="menuitem" 
+              href="/fossil-hybrid"
+              ) Fossil Hybrid
+            a(
+              role="menuitem" 
+              href="/swatch"
+              ) Swatch
+            a(
+              role="menuitem" 
+              href="/tag-heuer"
+              ) Tag Heuer
+      li.nav-item
+        a.nav-link(
+          aria-haspopup="true" 
+          aria-expanded="false" 
+          href="#women"
+          ) Nữ
+        .mega-menu(
+          aria-label="Menu đồng hồ nữ" 
+          role="menu"
+          )
+          .mega-menu-column
+            h3 Phổ biến nhất
+            a(
+              role="menuitem" 
+              href="/casio"
+              ) Casio
+            a(
+              role="menuitem" 
+              href="/michael-kors"
+              ) Michael Kors
+            a(
+              role="menuitem" 
+              href="/fossil"
+              ) Fossil
+            a(
+              role="menuitem" 
+              href="/citizen"
+              ) Citizen
+            a(
+              role="menuitem" 
+              href="/daniel-wellington"
+              ) Daniel Wellington
+          .mega-menu-column
+            h3 Hàng cao cấp
+            a(
+              role="menuitem" 
+              href="/rolex"
+              ) Rolex
+            a(
+              role="menuitem" 
+              href="/cartier"
+              ) Cartier
+            a(
+              role="menuitem" 
+              href="/omega"
+              ) Omega
+            a(
+              role="menuitem" 
+              href="/chanel"
+              ) Chanel
+            a(
+              role="menuitem" 
+              href="/longines"
+              ) Longines
+          .mega-menu-column
+            h3 Dòng đặc biệt
+            a(
+              role="menuitem" 
+              href="/baby-g"
+              ) Baby-G
+            a(
+              role="menuitem" 
+              href="/casio-sheen"
+              ) Casio Sheen
+            a(
+              role="menuitem" 
+              href="/fossil-hybrid"
+              ) Fossil Hybrid
+            a(
+              role="menuitem" 
+              href="/swatch"
+              ) Swatch
+            a(
+              role="menuitem" 
+              href="/tag-heuer"
+              ) Tag Heuer
+      li.nav-item
+        a.nav-link(href="/luxury") Luxury
+      li.nav-item
+        a.nav-link(href="/premium") Cực cao cấp
+      li.nav-item
+        a.nav-link(href="/wall") Treo tường
+        //- bị ghi đè dropdown-menu
