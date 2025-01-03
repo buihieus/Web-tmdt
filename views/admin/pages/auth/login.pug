@@ -1,35 +1,24 @@
-extends ../../layouts/auth.pug 
-include ../../mixins/show-alert.pug
-block main
-    +alert-error(5000)
-    .container.my-5
-        .row.justify-content-center
-            .col-8
-                h1(class="text-center") Đăng nhập
-                form(
-                action=`${preFixAdmin}/auth/login`
-                        method="POST"
-                )
-                    div(class="form-group")
-                        label(for="email") Email
-                        input(
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        name="email"
-                        required
-                        ) 
-                    div(class="form-group") 
-                        label(for="password") Mật khẩu
-                        input(
-                        type="password"
-                        class="form-control"
-                        id="password"
-                        name="password"
-                        required
-                        )
-                    div(class="form-group")
-                        button(
-                        type="submit"
-                        class="btn btn-primary btn-block"
-                        ) Đăng nhập
+doctype html
+html(lang="vi")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Đăng nhập Admin
+    link(rel="stylesheet" href="/admin/css/loginadmin.css")
+  body
+    .register-container
+      .register-layout
+        .image-column
+          img.hero-image(src="https://cdn.builder.io/api/v1/image/assets/TEMP/338d77e4a2a9aab6d2759e601d3c679237826352df908de88089c303a298f7ed?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" alt="Hình ảnh minh họa")
+        .form-column
+          form.registration-form(action="/admin/auth/login" method="POST")
+            h1.form-title Đăng nhập Admin
+            
+            .form-group
+              label.visually-hidden(for="email") Email
+              input#email.input-field(type="email" name="email" placeholder="Email" required)
+            .form-group
+              label.visually-hidden(for="password") Mật khẩu
+              input#password.input-field(type="password" name="password" placeholder="Mật khẩu" required)
+
+            button.submit-button(type="submit") ĐĂNG NHẬP
