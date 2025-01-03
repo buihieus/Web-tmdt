@@ -1,0 +1,179 @@
+.register-container {
+  background-color: rgba(144, 147, 144, 1);
+  padding: 0 65px 0 0;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.register-layout {
+  gap: 20px;
+  display: flex;
+}
+
+.image-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 58%;
+}
+
+.hero-image {
+  aspect-ratio: 0.97;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 42%;
+  margin-left: 20px;
+}
+
+.registration-form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-self: stretch;
+  margin: auto 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form-title {
+  color: rgba(68, 68, 68, 1);
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  align-self: center;
+}
+
+.input-field {
+  border-radius: 24px;
+  background-color: rgba(217, 217, 217, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  color: rgba(68, 68, 68, 1);
+  font-weight: 500;
+  padding: 12px 32px;
+  font-size: 16px;
+  width: 100%; /* Đảm bảo chiều rộng ngang bằng */
+  box-sizing: border-box; /* Bao gồm padding trong width */
+}
+
+.input-field:first-of-type {
+  margin-top: 37px;
+}
+
+.submit-button {
+  border-radius: 24px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 37px;
+  color: rgba(246, 202, 202, 1);
+  background-color: rgba(68, 68, 68, 1);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 70px 7px;
+  border: none;
+  cursor: pointer;
+  width: 100%; /* Đảm bảo chiều rộng ngang bằng */
+  box-sizing: border-box; /* Bao gồm padding trong width */
+}
+
+.divider-container {
+  display: flex;
+  gap: 17px;
+  color: rgba(0, 0, 0, 1);
+  margin: 36px 0 0 11px;
+  align-items: center;
+}
+
+.divider-line {
+  height: 1px;
+  flex-grow: 1;
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.social-login {
+  aspect-ratio: 3.62;
+  object-fit: contain;
+  object-position: center;
+  width: 127px;
+  border-radius: 50px;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.login-prompt {
+  align-self: center;
+  display: flex;
+  margin-top: 25px;
+  gap: 4px;
+}
+
+.login-text {
+  color: rgba(0, 0, 0, 1);
+  font-weight: 500;
+}
+
+.login-link {
+  color: rgba(255, 5, 5, 1);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 991px) {
+  .register-container {
+    padding-right: 20px;
+  }
+
+  .register-layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .image-column {
+    width: 100%;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    margin-top: 37px;
+  }
+
+  .form-column {
+    width: 100%;
+  }
+
+  .registration-form {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .input-field {
+    padding: 12px 20px;
+  }
+
+  .submit-button {
+    padding: 12px 20px;
+  }
+
+  .divider-container {
+    margin-right: 4px;
+  }
+}

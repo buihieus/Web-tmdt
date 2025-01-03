@@ -23,9 +23,11 @@ body
           )
       .auth-buttons
         li
-          a.auth-btn(href="/user/login") Đăng nhập
-        li
-          a.auth-btn(href="/user/register") Đăng ký
+          if (user)
+            a(href="/user/logout", class="auth-btn") Đăng xuất
+          else
+            a(href="/user/login", class="auth-btn") Đăng nhập
+            a(href="/user/register", class="auth-btn") Đăng ký
   nav.nav-container
     ul.nav-list
       li.nav-item.trend-2025

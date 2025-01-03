@@ -1,46 +1,41 @@
-extends ../../layouts/default.pug
-include ../../mixins/alert.pug
+doctype html
+html(lang="vi")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Đăng ký
+    link(rel="stylesheet" href="../css/signup.css")
+  body
+    .register-container
+      .register-layout
+        .image-column
+          img.hero-image(src="https://cdn.builder.io/api/v1/image/assets/TEMP/338d77e4a2a9aab6d2759e601d3c679237826352df908de88089c303a298f7ed?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" alt="")
+        .form-column
+          form.registration-form(action="/user/register" method="POST")
+            h1.form-title Đăng ký
+            
+            .form-group
+              label.visually-hidden(for="fullName") Họ và tên
+              input#fullName.input-field(type="text" name="fullName" placeholder="Họ và tên" required)
+            .form-group
+              label.visually-hidden(for="email") Email
+              input#email.input-field(type="email" name="email" placeholder="Email" required)
+            .form-group
+              label.visually-hidden(for="password") Mật khẩu
+              input#password.input-field(type="password" name="password" placeholder="Mật khẩu" required)
 
-block main
-  +alert-error(5000)
+            button.submit-button(type="submit" href="/user/login") ĐĂNG KÝ
+            
+            .divider-container
+              .divider-line
+              span HOẶC
+              .divider-line
 
-  .container.my-5 
-    .row.justify-content-center
-      .col-8 
-        h1(class="text-center") Đăng ký tài khoản
-        form(
-          action="/user/register"
-          method="POST"
-        )
-          div(class="from-group")
-            label(for="fullName") Họ và tên 
-            input(
-              type="text"
-              class="form-control"
-              id="fullName"
-              name="fullName"
-              required
-            )
-          div(class="from-group")
-            label(for="email") Email
-            input(
-              type="email"
-              class="form-control"
-              id="email"
-              name="email"
-              required
-            )
-          div(class="from-group")
-            label(for="password") Mật khẩu
-            input(
-              type="password"
-              class="form-control"
-              id="password"
-              name="password"
-              required
-            )
-          div(class="form-group mt-2")
-            button(
-              type="submit"
-              class="btn btn-primary btn-block"
-            ) Đăng ký
+            img.social-login(src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bfa5d240d28b05ed3f8baad5ede93b8bba4d575f8881a183458764174ff14ab?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" alt="Social login options")
+            
+            .login-prompt
+              span.login-text Bạn đã có tài khoản.
+              a.login-link(href="/user/login") Đăng nhập.
+            .login-prompt
+              span.login-text Chuyển hướng sang admin.
+              a.login-link(href="/admin/auth/login") Admin.
