@@ -1,0 +1,33 @@
+extends ../../layouts/default.pug
+block main
+    h1(class="mb-4") Thông tin cá nhân
+
+    if user && user.avatar
+        img(src=user.avatar width="150px" class="mb-3")
+    else 
+        img(src="/admin/images/avatar.png" width="150px" class="mb-3")
+
+    if user && user.fullname
+        p Họ tên: 
+            b #{user.fullname}
+
+    if user && user.email
+        p Email: 
+            b #{user.email}
+
+    if user && user.phone
+        p Số điện thoại: 
+            b #{user.phone}
+
+    if user && user.status
+        p 
+            span Trạng thái: 
+            span 
+                b #{user.status === "active" ? "Hoạt động" : "Dừng hoạt động"}
+
+    if role && role.title
+        p Phân quyền: 
+            b #{role.title}
+
+    a(href=`${preFixAdmin}/my-account/edit`
+        class="btn btn-warning") Chỉnh sửa thông tin cá nhân

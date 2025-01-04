@@ -26,19 +26,20 @@ mixin category-tree(items, level = 1)
                     name="position"
                 )                                       
             td  
-                if(item.status == "active") 
-                    a(href="javascript:;"
-                    data-status=item.status
-                    data-id=item.id 
-                    button-change-status
-                    class='badge badge-success'
-                    ) Hoạt động
-                else 
-                    a(href="javascript:;"
-                    data-status=item.status
-                    data-id=item.id 
-                    button-change-status
-                    class='badge badge-danger') Dừng hoạt động
+                if(role.permissions.includes("products-category_edit"))
+                    if(item.status == "active") 
+                        a(href="javascript:;"
+                        data-status=item.status
+                        data-id=item.id 
+                        button-change-status
+                        class='badge badge-success'
+                        ) Hoạt động
+                    else 
+                        a(href="javascript:;"
+                        data-status=item.status
+                        data-id=item.id 
+                        button-change-status
+                        class='badge badge-danger') Dừng hoạt động
                                     
             td 
                 a(href=`${preFixAdmin}/category/details/${item.id}`

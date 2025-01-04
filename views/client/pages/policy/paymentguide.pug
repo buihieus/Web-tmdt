@@ -1,0 +1,134 @@
+extends ../../layouts/default.pug
+
+block main
+  // Kết nối với tệp CSS
+  link(rel="stylesheet", href="/css/paymentguide.css")
+  main.payment-guide
+    h1.guide-title Hướng dẫn thanh toán
+    section.payment-process
+      h2 1. Quy trình thanh toán
+      .payment-methods
+        .method
+          h3 Cách 1: Thanh toán trực tiếp
+          ul
+            li Bước 1: Tìm hiểu thông tin sản phẩm/dịch vụ
+            li Bước 2: Đến siêu thị TopZone
+            li Bước 3: Thanh toán bằng tiền mặt/thẻ và nhận hàng
+        .method
+          h3 Cách 2: Thanh toán COD
+          ul
+            li Bước 1: Tìm hiểu thông tin sản phẩm
+            li Bước 2: Xác thực đơn hàng
+            li Bước 3: Xác nhận thông tin
+            li Bước 4: Nhận hàng và thanh toán
+        .method
+          h3 Cách 3: Thanh toán online
+          ul
+            li Bước 1: Tìm hiểu sản phẩm
+            li Bước 2: Xác thực đơn hàng
+            li Bước 3: Thanh toán
+            li Bước 4: Nhận hàng
+
+    section.payment-instructions
+      h2 2. Hướng dẫn thanh toán chi tiết
+      .instruction-block
+        h3 2.1 Thanh toán tiền mặt
+        .location
+          img(
+            height="300" 
+            width="400" 
+            alt="Thanh toán tại siêu thị" 
+            src="images/payment/store-payment.jpg"
+          )
+          h4 Tại siêu thị
+          p Thanh toán trực tiếp tại hệ thống siêu thị TopZone
+        .location
+          img(
+            height="300" 
+            width="400" 
+            alt="Thanh toán tại nhà" 
+            src="images/payment/home-payment.jpg"
+          )
+          h4 Tại nhà
+          p Thanh toán khi nhận hàng trong phạm vi 20km từ siêu thị
+      .instruction-block
+        h3 2.2 Thanh toán thẻ
+        .card-types
+          each card in ['visa', 'mastercard', 'atm', 'jcb']
+            img(
+              height="60" 
+              width="100" 
+              alt=`${card.toUpperCase()}` 
+              src=`images/payment/${card}.png`
+            )
+        .card-payment-steps
+          each step, index in ['Quẹt thẻ', 'Nhập PIN', 'Hoàn tất']
+            img(
+              height="200" 
+              width="300" 
+              alt=`Bước ${index + 1}: ${step}` 
+              src=`images/payment/card-payment-${index + 1}.jpg`
+            )
+      .instruction-block
+        h3 2.3 Chuyển khoản ngân hàng
+        .bank-info
+          img(
+            height="100" 
+            width="200" 
+            alt="MB Bank" 
+            src="images/payment/mbbank-logo.png"
+          )
+          .account-details
+            p Ngân hàng: MB Bank
+            p Số tài khoản: 123456789
+            p Chủ tài khoản: CÔNG TY TOPZONE
+            p Nội dung: [Mã đơn hàng] [Số điện thoại]
+          img(
+            height="200" 
+            width="200" 
+            alt="Mã QR chuyển khoản" 
+            src="images/payment/qr-code.png"
+          )
+      .instruction-block
+        h3 2.4 Thanh toán online
+        .online-payment
+          each step, index in ['Chọn phương thức', 'Điền thông tin', 'Xác nhận']
+            .step
+              img(
+                height="300" 
+                width="400" 
+                alt=`Bước ${index + 1}: ${step}` 
+                src=`images/payment/online-step${index + 1}.jpg`
+              )
+              p Bước #{index + 1}: #{step}
+
+    section.refund-policy
+      h2 3. Chính sách hoàn tiền
+      .refund-times
+        .refund-type
+          img(
+            height="150" 
+            width="150" 
+            alt="Hoàn tiền ATM" 
+            src="images/payment/atm-refund.png"
+          )
+          h3 Thẻ ATM nội địa
+          p 7-10 ngày làm việc
+        .refund-type
+          img(
+            height="150" 
+            width="150" 
+            alt="Hoàn tiền thẻ tín dụng" 
+            src="images/payment/credit-refund.png"
+          )
+          h3 Thẻ tín dụng quốc tế
+          p 7-15 ngày làm việc
+        .refund-type
+          img(
+            height="150" 
+            width="150" 
+            alt="Hoàn tiền ví điện tử" 
+            src="images/payment/ewallet-refund.png"
+          )
+          h3 Ví điện tử
+          p 3-8 ngày làm việc

@@ -1,0 +1,32 @@
+extends ../../layouts/default.pug
+
+block main
+  // Kết nối với tệp CSS
+  link(rel="stylesheet", href="/css/shippingpolicy.css")
+  .delivery-policy
+    h1.policy-title Chính sách giao hàng
+    main.policy-content
+      .policy-text
+        | 1. Phạm vi áp dụng
+        br
+        | Những khu vực tỉnh thành có
+        a(
+          target="_blank"
+          href="https://www.topzone.vn/he-thong-cua-hang"
+        ) hệ thống siêu thị TopZone
+        | .
+        br
+        | 2. Thời gian nhận hàng
+        br
+        | TopZone nhận giao nhanh trong ngày với khoảng cách từ các siêu thị có hàng
+        |   đến điểm giao là 20 km. Khoảng cách lớn hơn nhân viên của chúng tôi sẽ tư
+        |   vấn cách thức giao hàng thuận tiện nhất cho khách hàng. Cụ thể:
+    img.policy-image(
+      alt="Delivery Policy Details"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/b65eabd89a7bc001262b91efe842cf9958302261c803778083f2a47c8b5e8327?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+    )
+    h2.shipping-title Phí giao hàng
+    img.shipping-image(
+      alt="Shipping Fee Details"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/fbe2fa04fbbce3a605d3f3b989bfd7755b3b5ebb92a42240dca9181fef618cc5?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+    )

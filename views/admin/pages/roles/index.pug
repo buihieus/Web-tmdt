@@ -1,4 +1,5 @@
 extends ../../layouts/default.pug
+
 block main
     h1(class="mb-4") Nhóm quyền
 
@@ -7,24 +8,23 @@ block main
         .card-body
             .row
                 .col-8
-                .col-4
+                    p(class="text-muted") Danh sách các nhóm quyền hiện có
+                .col-4.text-end
                     a(
-                    href=`${preFixAdmin}/roles/create`
-                    class="btn btn-outline-success" 
+                        href=`${preFixAdmin}/roles/create`,
+                        class="btn btn-outline-success"
                     ) + Thêm mới
 
-            table(
-            class="table table-hover table-sm"
-            )
+            table(class="table table-hover table-sm")
                 thead
                     tr
                         th STT
-                        th Nhóm quyền 
-                        th Mô tả ngắn 
+                        th Nhóm quyền
+                        th Mô tả ngắn
                         th Hành động
 
                 tbody
-                    if(records.length > 0)
+                    if records.length > 0
                         each item, index in records
                             tr
                                 td #{index + 1}
@@ -32,16 +32,24 @@ block main
                                 td #{item.description}
                                 td
                                     a(
-                                    class="btn btn-secondary btn-sm"
-                                    href=`${preFixAdmin}/roles/detail/${item.id}`
+                                        class="btn btn-secondary btn-sm",
+                                        href=`${preFixAdmin}/roles/detail/${item.id}`
                                     ) Chi tiết
                                     a(
-                                    class="btn btn-warning btn-sm ml-1"
-                                    href=`${preFixAdmin}/roles/edit/${item.id}`
-                                    ) Sửa 
+                                        class="btn btn-warning btn-sm ml-1",
+                                        href=`${preFixAdmin}/roles/edit/${item.id}`
+                                    ) Sửa
                                     button(
-                                    class="btn btn-danger btn-sm ml-1"
-                                    ) Xóa
+                                        class="btn btn-danger btn-sm ml-1",
+                                        onclick=`if(confirm('Bạn có chắc chắn muốn xóa nhóm quyền này vĩnh viễn không?')) { document.getElementById('delete-form-${item.id}').submit(); }`
+                                    ) Xóa vĩnh viễn
+                                    form(
+                                        id=`delete-form-${item.id}`,
+                                        action=`${preFixAdmin}/roles/delete-permanent/${item.id}`, // Route xử lý xóa vĩnh viễn
+                                        method="POST",
+                                        style="display: none;"
+                                    )
+
                     else
                         tr
-                            td(colspan="4" class="text-center") Chưa có nhóm quyền nào được tạo.
+                            td(colspan="4" class="text-center text-muted") Chưa có nhóm quyền nào được tạo.
