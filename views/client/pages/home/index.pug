@@ -25,68 +25,9 @@ block main
         p.store-description
           | Experience luxury timepieces in our premium showroom. Our expert staff provides personalized service to help you find the perfect watch that matches your style and preferences. Visit us to explore our extensive collection of prestigious brands and exclusive models.
         a.store-cta(href="#visit") Visit Our Store
-  section.featured-products(aria-label="Featured Products")
-    .products-grid
-      article.product-card
-        .product-image
-          img.product-img(
-            alt="Citizen AxiomE Watch" 
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0eabc021e2ce41be106eedbe75b9a37f2ab5139712166adad6b25fe3e319df56?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
-            )
-          .product-overlay
-            button.quick-view(aria-label="Quick view Citizen AxiomE") Quick View
-        .product-info
-          h3.product-title Citizen AxiomE
-          .product-meta
-            span.product-price $100.00
-            .product-rating
-              span.stars ★★★★★
-              span.rating-count (24)
-      article.product-card
-        .product-image
-          img.product-img(
-            alt="Hampden Classic Watch" 
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/dc70421d3ed7a7466fa3c3df00e6dba80b445066039e1e3d3c1dea8b49c61751?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
-            )
-          .product-overlay
-            button.quick-view(aria-label="Quick view Hampden") Quick View
-        .product-info
-          h3.product-title Hampden
-          .product-meta
-            span.product-price $89.60
-            .product-rating
-              span.stars ★★★★☆
-              span.rating-count (18)
-      article.product-card
-        .product-image
-          img.product-img(
-            alt="Xiaomi Readmi W3 Smartwatch" 
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0b388de178928ef54d2d45d705faca90f65aac8e34649895c56b143c57b17c84?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
-            )
-          .product-overlay
-            button.quick-view(aria-label="Quick view Xiaomi Readmi W3") Quick View
-        .product-info
-          h3.product-title Xiaomi Readmi W3
-          .product-meta
-            span.product-price $90.00
-            .product-rating
-              span.stars ★★★★★
-              span.rating-count (32)
-      article.product-card
-        .product-image
-          img.product-img(
-            alt="Apple Watch Ultra 2" 
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/c8cf8e4c088acbd1a91d679999e223792a7219a1c4278f96a94391647e8bbca5?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
-            )
-          .product-overlay
-            button.quick-view(aria-label="Quick view Apple Watch Ultra 2") Quick View
-        .product-info
-          h3.product-title Apple Watch Ultra 2
-          .product-meta
-            span.product-price $110.00
-            .product-rating
-              span.stars ★★★★★
-              span.rating-count (45)
+        
+  +product-grid(productsFeatured)
+
   section.brand-section(aria-label="Featured Brands")
     .brand-grid
       img.brand-img(
