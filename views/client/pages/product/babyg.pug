@@ -26,3 +26,15 @@ block main
             button.add-to-cart-btn(aria-label=`Add ${product.title} to cart`)
               span.btn-text Thêm vào giỏ hàng
               span.btn-icon 🛒
+    // Hiển thị nút phân trang
+    nav.pagination
+      if currentPage > 1
+        a.page-link(href=`?page=${currentPage - 1}` aria-label="Previous page") Trước
+      each page in [...Array(totalPages).keys()].map(p => p + 1)
+        a.page-link(
+          href=`?page=${page}`
+          class=page === currentPage ? "active" : ""
+        ) #{page}
+      if currentPage < totalPages
+        a.page-link(href=`?page=${currentPage + 1}` aria-label="Next page") Tiếp
+
