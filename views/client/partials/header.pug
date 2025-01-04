@@ -6,21 +6,21 @@ body
         img.logo(
           alt="Watch Store Logo" 
           src="/img/thumb.png"
-          )
+        )
       .search-container
         img.search-icon(
           alt="" 
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/bdcb1192a0efb0f8b20182d2e1b1b241f73abf08859eafda65b26673bf16ae3c?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
-          )
+        )
         input.search-input(
           aria-label="Search products" 
           placeholder="Tìm sản phẩm hoặc thương hiệu" 
           type="search"
-          )
+        )
         img.voice-search(
           alt="Voice Search" 
           src="/img/voice-search.png"
-          )
+        )
       if(user)    
         button.cart-button(
             aria-label="Giỏ hàng, 0 sản phẩm" 
@@ -36,7 +36,7 @@ body
               )
             span.cart-count(aria-hidden="true") 0
       .auth-buttons
-        if (user)
+        if (user) 
           .user-section
             .user-dropdown
               button.user-dropdown-btn(
@@ -44,8 +44,8 @@ body
                 aria-haspopup="true" 
                 aria-expanded="false" 
                 type="button"
-                )
-                span.username name
+              )
+                span.username #{user.fullName || "Người dùng"}
                 img.user-icon(
                   height="41" 
                   width="44" 
@@ -53,169 +53,32 @@ body
                   alt="" 
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/cae81ffecb40d0cc59fe6b010ff6777f8e66407a3a80e4e0bdcbd04277b483a6?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" 
                   loading="lazy"
-                  )
+                )
               .dropdown-menu1(
                 aria-label="Menu tài khoản" 
                 role="menu"
-                )
+              )
                 a.dropdown-item(
                   role="menuitem" 
                   href="/profile"
-                  ) Thông tin tài khoản
+                ) Thông tin tài khoản
                 a.dropdown-item(
                   role="menuitem" 
                   href="/orders"
-                  ) Đơn hàng của tôi
+                ) Đơn hàng của tôi
                 a.dropdown-item(
                   role="menuitem" 
                   href="/wishlist"
-                  ) Sản phẩm yêu thích
+                ) Sản phẩm yêu thích
                 a.dropdown-item(
                   role="menuitem" 
                   href="/notifications"
-                  ) Thông báo
+                ) Thông báo
                 .dropdown-divider(role="separator")
                 a.dropdown-item(
                   role="menuitem" 
                   href="/user/logout"
-                  ) Đăng xuất
+                ) Đăng xuất
         else
-          a(href="/user/login", class="auth-btn") Đăng nhập
-          a(href="/user/register", class="auth-btn") Đăng ký
-  nav.nav-container
-    ul.nav-list
-      li.nav-item.trend-2025
-        a.nav-link(href="/trends") Xu hướng 2025
-      li.nav-item
-        a.nav-link(href="#menu") Menu
-        .dropdown-menu
-          .menu-section
-            h3.menu-heading Phổ biến nhất
-            ul.menu-list
-              li.menu-item
-              li.menu-item
-                a.menu-link(href="/casio") Casio
-              li.menu-item
-                a.menu-link(href="/michael-kors") Michael Kors
-              li.menu-item
-                a.menu-link(href="/fossil") Fossil
-              li.menu-item
-                a.menu-link(href="/citizen") Citizen
-              li.menu-item
-                a.menu-link(href="/apple") Apple
-          .menu-section
-            h3.menu-heading Hàng cao cấp
-            ul.menu-list
-              li.menu-item
-                a.menu-link(href="/rolex") Rolex
-              li.menu-item
-                a.menu-link(href="/cartier") Cartier
-              li.menu-item
-                a.menu-link(href="/omega") Omega
-              li.menu-item
-                a.menu-link(href="/chanel") Chanel
-              li.menu-item
-                a.menu-link(href="/longines") Longines
-          .menu-section
-            h3.menu-heading Dòng đặc biệt
-            ul.menu-list
-              li.menu-item
-                a.menu-link(href="/baby-g") Baby-G
-              li.menu-item
-                a.menu-link(href="/casio-sheen") Casio Sheen
-              li.menu-item
-                a.menu-link(href="/fossil-hybrid") Fossil Hybrid
-              li.menu-item
-                a.menu-link(href="/swatch") Swatch
-              li.menu-item
-                a.menu-link(href="/tag-heuer") Tag Heuer
-      li.nav-item
-        a.nav-link(href="#") Nam
-        .dropdown-menu
-          .menu-section
-            h3.menu-heading Phổ biến nhất
-            ul.menu-list
-              li.menu-item
-                a.menu-link(href="/casio") Casio
-              li.menu-item
-                a.menu-link(href="/michael-kors") Michael Kors
-              li.menu-item
-                a.menu-link(href="/fossil") Fossil
-              li.menu-item
-                a.menu-link(href="/citizen") Citizen
-              li.menu-item
-                a.menu-link(href="/apple") Apple
-          .menu-section
-            h3.menu-heading Hàng cao cấp
-            ul.menu-list
-              li.menu-item
-                a.menu-link(href="/rolex") Rolex
-              li.menu-item
-                a.menu-link(href="/cartier") Cartier
-              li.menu-item
-                a.menu-link(href="/omega") Omega
-              li.menu-item
-                a.menu-link(href="/chanel") Chanel
-              li.menu-item
-                a.menu-link(href="/longines") Longines
-          .menu-section
-            h3.menu-heading Dòng đặc biệt
-            ul.menu-list
-              li.menu-item
-                a.menu-link(href="/baby-g") Baby-G
-              li.menu-item
-                a.menu-link(href="/casio-sheen") Casio Sheen
-              li.menu-item
-                a.menu-link(href="/fossil-hybrid") Fossil Hybrid
-              li.menu-item
-                a.menu-link(href="/swatch") Swatch
-              li.menu-item
-                a.menu-link(href="/tag-heuer") Tag Heuer
-      li.nav-item
-        a.nav-link(href="#women") Nữ
-        .dropdown-menu
-          .menu-section
-            h3.menu-heading Phổ biến nhất
-            ul.menu-list
-              li.menu-item
-                a.menu-link(href="/casio") Casio
-              li.menu-item
-                a.menu-link(href="/michael-kors") Michael Kors
-              li.menu-item
-                a.menu-link(href="/fossil") Fossil
-              li.menu-item
-                a.menu-link(href="/citizen") Citizen
-              li.menu-item
-                a.menu-link(href="/apple") Apple
-          .menu-section
-            h3.menu-heading Hàng cao cấp
-            ul.menu-list
-              li.menu-item
-                a.menu-link(href="/rolex") Rolex
-              li.menu-item
-                a.menu-link(href="/cartier") Cartier
-              li.menu-item
-                a.menu-link(href="/omega") Omega
-              li.menu-item
-                a.menu-link(href="/chanel") Chanel
-              li.menu-item
-                a.menu-link(href="/longines") Longines
-          .menu-section
-            h3.menu-heading Dòng đặc biệt
-            ul.menu-list
-              li.menu-item
-                a.menu-link(href="/baby-g") Baby-G
-              li.menu-item
-                a.menu-link(href="/casio-sheen") Casio Sheen
-              li.menu-item
-                a.menu-link(href="/fossil-hybrid") Fossil Hybrid
-              li.menu-item
-                a.menu-link(href="/swatch") Swatch
-              li.menu-item
-                a.menu-link(href="/tag-heuer") Tag Heuer
-      li.nav-item
-        a.nav-link(href="/luxury") Luxury
-      li.nav-item
-        a.nav-link(href="/premium") Cũ cao cấp
-      li.nav-item
-        a.nav-link(href="/wall") Treo tường
+          a.auth-btn(href="/user/login") Đăng nhập
+          a.auth-btn(href="/user/register") Đăng ký
