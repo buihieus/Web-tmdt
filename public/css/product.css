@@ -298,3 +298,30 @@
     transform: none;
   }
 }
+
+/* paginations */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.page-link {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.page-link.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.page-link:hover {
+  background-color: #e9ecef;
+}
