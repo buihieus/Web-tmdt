@@ -13,9 +13,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-a {
-  text-decoration: none; /* Bỏ gạch chân của thẻ a */
-}
 
 body {
   font-family: 'Inter', sans-serif;
@@ -23,8 +20,8 @@ body {
 }
 
 .header {
-  background-color: var(--secondary-color);
-  /* padding: 1rem 2rem; */
+  background-color: #323232;
+  padding: 1rem 2rem;
 }
 
 .header-container {
