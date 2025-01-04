@@ -20,9 +20,64 @@ body
           alt="Voice Search" 
           src="/img/voice-search.png"
           )
+      if(user)    
+        button.cart-button(
+            aria-label="Giỏ hàng, 0 sản phẩm" 
+            type="button"
+            )
+            img.cart-icon(
+              height="36" 
+              width="36" 
+              aria-hidden="true" 
+              alt="" 
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/a53073b0b5d64aceb4778af48ce07f0dbc562d59dbb550d88f014cdfeb270dcf?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" 
+              loading="lazy"
+              )
+            span.cart-count(aria-hidden="true") 0
       .auth-buttons
         if (user)
-          a(href="/user/logout", class="auth-btn") Đăng xuất
+          .user-section
+            .user-dropdown
+              button.user-dropdown-btn(
+                aria-label="Menu tài khoản người dùng" 
+                aria-haspopup="true" 
+                aria-expanded="false" 
+                type="button"
+                )
+                span.username #{user.name}
+                img.user-icon(
+                  height="41" 
+                  width="44" 
+                  aria-hidden="true" 
+                  alt="" 
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/cae81ffecb40d0cc59fe6b010ff6777f8e66407a3a80e4e0bdcbd04277b483a6?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" 
+                  loading="lazy"
+                  )
+              .dropdown-menu1(
+                aria-label="Menu tài khoản" 
+                role="menu"
+                )
+                a.dropdown-item(
+                  role="menuitem" 
+                  href="/profile"
+                  ) Thông tin tài khoản
+                a.dropdown-item(
+                  role="menuitem" 
+                  href="/orders"
+                  ) Đơn hàng của tôi
+                a.dropdown-item(
+                  role="menuitem" 
+                  href="/wishlist"
+                  ) Sản phẩm yêu thích
+                a.dropdown-item(
+                  role="menuitem" 
+                  href="/notifications"
+                  ) Thông báo
+                .dropdown-divider(role="separator")
+                a.dropdown-item(
+                  role="menuitem" 
+                  href="/user/logout"
+                  ) Đăng xuất
         else
           a(href="/user/login", class="auth-btn") Đăng nhập
           a(href="/user/register", class="auth-btn") Đăng ký
