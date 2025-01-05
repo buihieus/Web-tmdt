@@ -1,12 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../../controllers/admin/category.controller");
-const uploadCloud = require("../../middleware/admin/uploadCloud.middleware");
 const multer = require("multer");
+// const storage = require("../../helpers/storageMulter");
 const upload = multer();
 const createValidate = require("../../validates/product.validate");
 
+const controller = require("../../controllers/admin/product.controller");
+const uploadCloud = require("../../middleware/admin/uploadCloud.middleware");
+
+
 router.get("/", controller.index);
+
+router.patch("/change-status/:status/:id", controller.changeStatus);
+
+router.patch("/change-multi", controller.changeMultiStatus);
+
+router.delete("/delete/:id", controller.deleteItem);
 
 router.get("/create", controller.create);
 
@@ -28,4 +37,5 @@ router.patch(
   controller.editPatch
 );
 
+router.get("/details/:id", controller.details);
 module.exports = router;
