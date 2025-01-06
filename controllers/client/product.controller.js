@@ -22,7 +22,7 @@ module.exports.detail = async (req, res) => {
         };
         const product = await Product.findOne(find);
 
-        res.render('client/pages/product/detail', {
+        res.render("client/pages/product/detail", {
             pageTitle: product.title,
             product: product
         });
