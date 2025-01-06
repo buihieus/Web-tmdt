@@ -14,6 +14,7 @@ block main
                             img(src=item.thumbnail, 
                             alt=item.tilte)
                         .inner-content
+                            
                             h3.inner-title 
                                 a(href=`/products/${item.slug}`) #{item.title}
                             .inner-price-new #{Math.ceil((item.price*(100 - item.discountPercentage))/100)}$
