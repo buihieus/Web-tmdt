@@ -1,0 +1,102 @@
+.privacy-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #ffffff;
+    background-color: rgba(21, 16, 16, 1);
+    margin-top: 117px;
+  }
+  
+  .payment-terms {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: Tinos, serif;
+  }
+  
+  .policy-text {
+    font-family: Tinos, serif;
+    line-height: 1.6;
+    font-size: 1.125rem;
+  }
+  
+  .policy-text p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-info {
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: rgba(52, 48, 48, 0.5);
+    border-radius: 4px;
+  }
+  
+  .payment-methods {
+    margin: 3rem 0;
+  }
+  
+  .payment-method {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(52, 48, 48, 0.5);
+    border-radius: 4px;
+  }
+  
+  .payment-method h3 {
+    color: rgba(248, 225, 16, 1);
+    margin-bottom: 1rem;
+  }
+  
+  .payment-method ul,
+  .payment-method ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+  
+  .payment-method li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .commitment {
+    margin: 3rem 0;
+    padding: 1.5rem;
+    background-color: rgba(52, 48, 48, 0.5);
+    border-radius: 4px;
+  }
+  
+  .commitment h2 {
+    color: rgba(248, 225, 16, 1);
+    margin-bottom: 1rem;
+  }
+  a {
+    color: rgba(248, 225, 16, 1);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  
+  a:hover,
+  a:focus {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+  
+  a:focus {
+    outline: 2px solid rgba(248, 225, 16, 1);
+    outline-offset: 2px;
+  }
+  
+  @media (max-width: 768px) {
+    .privacy-content {
+      padding: 1rem;
+    }
+  
+    .payment-terms {
+      font-size: 1.5rem;
+    }
+}
+  
+  @media (prefers-reduced-motion: reduce) {
+    a {
+      transition: none;
+    }
+  }

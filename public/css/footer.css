@@ -1,0 +1,174 @@
+.footer {
+  background-color: #323232;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0 76px 20px;
+}
+
+.img-26 {
+  aspect-ratio: 4.05;
+  object-fit: contain;
+  object-position: center;
+  width: 356px;
+  border-radius: 10px;
+  align-self: center;
+  max-width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.img-26:hover {
+  transform: scale(1.05);
+}
+
+.div-27 {
+  margin-top: 39px;
+}
+
+.div-28 {
+  gap: 20px;
+  display: flex;
+}
+
+.column-21,
+.column-22,
+.column-23,
+.column-24 {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 25%;
+}
+
+.div-29,
+.div-31,
+.div-33 {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  font-family: Tinos, sans-serif;
+  font-weight: 400;
+}
+
+.hỗ-trợ-khach-hang,
+.chinh-sach-chung,
+.lien-hệ-hỗ-trợ,
+.theo-doi-chung-toi {
+  color: rgba(248, 225, 16, 1);
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.hỗ-trợ-khach-hang:hover,
+.chinh-sach-chung:hover,
+.lien-hệ-hỗ-trợ:hover,
+.theo-doi-chung-toi:hover {
+  color: rgba(248, 225, 16, 0.8);
+}
+
+.div-30,
+.div-32,
+.div-34 {
+  display: flex;
+  margin-top: 19px;
+  flex-direction: column;
+  font-size: 16px;
+  padding: 0 15px;
+}
+
+.hover-link {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  margin-top: 24px;
+  transition: all 0.3s ease;
+}
+
+.hover-link:first-child {
+  margin-top: 0;
+}
+
+.hover-link:hover {
+  color: rgba(248, 225, 16, 1);
+  transform: translateX(5px);
+}
+
+.div-36 {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  margin: 14px 0 0 12px;
+}
+
+.social-link {
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+}
+
+.div-36 img {
+  width: 36px;
+  height: 36px;
+  transition: opacity 0.3s ease;
+}
+
+.social-link:hover img {
+  opacity: 0.8;
+}
+
+@media (max-width: 991px) {
+  .footer {
+    padding: 0 20px;
+  }
+
+  .div-28 {
+    flex-direction: column;
+  }
+
+  .column-21,
+  .column-22,
+  .column-23,
+  .column-24 {
+    width: 100%;
+    margin-top: 31px;
+  }
+
+  .column-21:first-child {
+    margin-top: 0;
+  }
+
+  .div-36 {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .img-26 {
+    width: 280px;
+  }
+
+  .div-36 {
+    gap: 15px;
+  }
+
+  .div-36 img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (hover: none) {
+  .hover-link:hover {
+    transform: none;
+  }
+  
+  .social-link:hover {
+    transform: none;
+  }
+  
+  .img-26:hover {
+    transform: none;
+  }
+}

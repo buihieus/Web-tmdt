@@ -1,0 +1,125 @@
+.privacy-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #151010;
+    color: #FFFFFF;
+    font-family: 'Tinos', sans-serif;
+    line-height: 1.6;
+    margin-top: 117px;
+  }
+  
+  .privacy-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #F8E110;
+  }
+  
+  .section-title {
+    color: #F8E110;
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+  }
+  
+  .section-content {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+  
+  .section-content p {
+    margin-bottom: 1rem;
+  }
+  
+  .section-content ul {
+    list-style-type: disc;
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+  
+  .section-content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-link {
+    color: #F8E110;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-link:hover,
+  .contact-link:focus {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+  
+  .contact-link:focus-visible {
+    outline: 2px solid #F8E110;
+    outline-offset: 2px;
+  }
+  
+  @media (max-width: 768px) {
+    .privacy-content {
+        padding: 1rem;
+    }
+  
+    .privacy-title {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+  
+    .section-title {
+        font-size: 1.25rem;
+    }
+  
+    .section-content {
+        font-size: 1rem;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+  }
+  
+  @media screen and (forced-colors: active) {
+    .privacy-title,
+    .section-title {
+        color: CanvasText;
+    }
+    
+    .contact-link {
+        color: LinkText;
+    }
+    
+    .contact-link:hover,
+    .contact-link:focus {
+        color: ActiveText;
+    }
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .privacy-content {
+        background-color: #151010;
+        color: #FFFFFF;
+    }
+  }
+  
+  @media print {
+    .privacy-content {
+        background: none;
+        color: #000000;
+    }
+    
+    .privacy-title,
+    .section-title {
+        color: #000000;
+    }
+    
+    .contact-link {
+        text-decoration: underline;
+        color: #000000;
+    }
+  }
