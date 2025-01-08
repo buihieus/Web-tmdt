@@ -119,16 +119,17 @@ module.exports.changeMultiStatus = async (req, res) => {
 module.exports.deleteItem = async (req, res) => {
   const id = req.params.id;
 
-  // await Product.deleteOne({_id: id});
-  await Product.updateOne(
-    { _id: id },
-    { deleted: true, deletedAt: new Date() }
-  );
-
-  req.flash("success", `Đã xóa thành công ${ids.length} sản phẩm!`);
+  try {
+    await Product.deleteOne({ _id: id }); // Xóa sản phẩm trong database
+    req.flash("success", "Đã xóa thành công sản phẩm!");
+  } catch (error) {
+    req.flash("error", "Xóa sản phẩm thất bại!");
+    console.log(error);
+  }
 
   res.redirect("back");
 };
+
 
 //[GET] /admin/products/create
 module.exports.create = async (req, res) => {
@@ -155,10 +156,7 @@ module.exports.createPost = async (req, res) => {
   } else {
     req.body.position = parseInt(req.body.position);
   }
-  // console.log(req.body);
-  // if (req.file) {
-  //   req.body.thumbnail = `/uploads/${req.file.filename}`; //Lưu link ảnh vào database
-  // }
+
   const product = new Product(req.body);
   await product.save();
   res.redirect(`${systemConfig.prefixAdmin}/products`);
