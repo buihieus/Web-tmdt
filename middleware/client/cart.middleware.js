@@ -2,8 +2,16 @@ const Cart = require("../../models/cart.model");
 
 module.exports.cartId = async (req, res, next) => {
   try {
+    // Check if the request is for an admin route
+    if (req.path.startsWith('/admin')) {
+      return next(); // Skip cart handling for admin routes
+    }
+    
     if (!req.cookies.cartId) {
-      const cart = new Cart();
+      // Assuming you have a user ID to assign to the cart
+      const userId = req.user ? req.user.id : null; // Modify this according to your authentication logic
+      
+      const cart = new Cart({ user_id: userId }); // Include user_id
       const savedCart = await cart.save();
 
       if (!savedCart) {

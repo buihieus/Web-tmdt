@@ -2,7 +2,6 @@ extends ../../layouts/default.pug
 include ../../mixins/box-head.pug
 include ../../mixins/alert.pug
 
-
 block main 
   +alert-success(2000)
   +alert-error(2000)
@@ -33,16 +32,25 @@ block main
                     img(src=item.productInfo.thumbnail, alt=item.productInfo.title width="80px")
                   td
                     a(href=`/products/detail/${item.productInfo.slug}`) #{item.productInfo.title}
-                  td #{item.productInfo.priceNew}
+                  td #{item.productInfo.priceNew}$
                   td 
-                    input(
-                      type="number"
-                      name="quantity"
-                      value=item.quantity
-                      min="1"
-                      product-id=item.product_id
-                      style="width: 60px"
+                    form(
+                      action=`/cart/update-quantity/${item.product_id}`
+                      method="POST"
+                      style="display: inline-block;"
                     )
+                      input(
+                        type="number"
+                        name="quantity"
+                        value=item.quantity
+                        min="1"
+                        style="width: 60px"
+                      )
+                      button(
+                        type="submit"
+                        class="btn btn-primary btn-sm ms-2"
+                        style="display: inline-block;"
+                      ) Cập nhật
                   td #{item.totalPrice}$
                   td 
                     a(
@@ -56,5 +64,3 @@ block main
 
         div(class="text-end mt-3")  
           a(href="/checkout" class="btn btn-success") THANH TOÁN
-  
-  script(src="/js/cart.js") 

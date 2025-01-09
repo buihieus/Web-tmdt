@@ -161,3 +161,47 @@ module.exports.update = async (req, res) => {
     res.status(500).send("Internal server error");
   }
 };
+// [POST] /cart/update-quantity/:productId
+module.exports.updateQuantity = async (req, res) => {
+  try {
+    const userId = req.user._id; // Lấy user ID của người dùng hiện tại
+    const productId = req.params.productId; // ID sản phẩm được gửi từ form
+    const quantity = parseInt(req.body.quantity, 10); // Lấy số lượng từ form
+
+    if (!userId) {
+      console.error("User is not authenticated");
+      return res.status(401).send("Unauthorized");
+    }
+
+    if (isNaN(quantity) || quantity <= 0) {
+      req.flash("error", "Số lượng không hợp lệ!");
+      return res.redirect("back");
+    }
+
+    // Tìm giỏ hàng của người dùng
+    const cart = await Cart.findOne({ user_id: userId });
+
+    if (!cart) {
+      req.flash("error", "Giỏ hàng không tồn tại!");
+      return res.redirect("back");
+    }
+
+    // Cập nhật số lượng sản phẩm trong giỏ hàng
+    const productInCart = cart.products.find(
+      (item) => item.product_id == productId
+    );
+
+    if (productInCart) {
+      productInCart.quantity = quantity;
+      await cart.save(); // Lưu lại thay đổi
+    } else {
+      req.flash("error", "Sản phẩm không tồn tại trong giỏ hàng!");
+    }
+
+    req.flash("success", "Cập nhật số lượng thành công!");
+    res.redirect("/cart"); // Quay lại trang giỏ hàng
+  } catch (error) {
+    console.error("Error in /cart/update-quantity:", error);
+    res.status(500).send("Internal server error");
+  }
+};
