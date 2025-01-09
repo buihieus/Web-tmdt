@@ -7,5 +7,30 @@ block main
     .row 
       .col-12 
         +box-head("Kết quả tìm kiếm")
+    if(products.length  > 0)
+      +product-grid(products)
+      // Phân trang
+      .pagination-wrapper.d-flex.justify-content-center.mt-3
+        nav(aria-label="Pagination")
+          ul.pagination
+            if currentPage > 1
+              li.page-item
+                a.page-link(href=`?page=${currentPage - 1}` aria-label="Previous") &laquo;
+            else
+              li.page-item.disabled
+                span.page-link &laquo;
 
-    +product-grid(products)
+            each page in [...Array(totalPages).keys()]
+              li.page-item(class=(currentPage === page + 1 ? "active" : ""))
+                a.page-link(href=`?page=${page + 1}`) #{page + 1}
+
+            if currentPage < totalPages
+              li.page-item
+                a.page-link(href=`?page=${currentPage + 1}` aria-label="Next") &raquo;
+            else
+              li.page-item.disabled
+                span.page-link &raquo;
+    else 
+      h3(class="text-center") Không tìm thấy sản phẩm nào
+    
+    

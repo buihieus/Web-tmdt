@@ -8,19 +8,21 @@ body
           src="/img/thumb.png"
         )
       .search-container
-        img.search-icon(
-          alt="" 
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/bdcb1192a0efb0f8b20182d2e1b1b241f73abf08859eafda65b26673bf16ae3c?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
-        )
-        input.search-input(
-          aria-label="Search products" 
-          placeholder="Tìm sản phẩm hoặc thương hiệu" 
-          type="search"
-        )
-        img.voice-search(
-          alt="Voice Search" 
-          src="/img/voice-search.png"
-        )
+        form.search-box(action="search",method="GET")
+          img.search-icon(
+            alt="" 
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/bdcb1192a0efb0f8b20182d2e1b1b241f73abf08859eafda65b26673bf16ae3c?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c"
+          )
+          input.search-input(
+            aria-label="Search products" 
+            placeholder="Tìm sản phẩm hoặc thương hiệu" 
+            type="search"
+            name="keyword"
+          )
+          //- img.voice-search(
+          //-   alt="Voice Search" 
+          //-   src="/img/voice-search.png"
+          //- )
       if(user)    
         button.cart-button(
             aria-label="Giỏ hàng, 0 sản phẩm" 

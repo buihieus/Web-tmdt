@@ -48,6 +48,13 @@ body {
   margin-right: 20px; /* Khoảng cách giữa phần tìm kiếm và giỏ hàng */
 }
 
+.search-box {
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc trong form */
+  gap: 35px; /* Khoảng cách giữa các phần tử trong form */
+  width: 100%;
+}
+
 .search-icon {
   width: 24px;
   height: 24px;
