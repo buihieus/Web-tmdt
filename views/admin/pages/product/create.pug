@@ -1,43 +1,41 @@
 extends ../../layouts/default.pug 
 include ../../mixins/show-alert.pug
 include ../../mixins/select-category.pug
+
 block main 
     +alert-error("5000")
 
     h1(class="mb-4") Thêm mới sản phẩm 
 
     form(
-    action=`${preFixAdmin}/products/create`
-    id="form-create-product"
-    method="POST"
-    enctype="multipart/form-data"
+        action=`${preFixAdmin}/products/create`
+        id="form-create-product"
+        method="POST"
+        enctype="multipart/form-data"
     )
         div(class="form-group") 
             label(for="title") Tiêu đề
             input(
-            type="text"
-            class="form-control"
-            id="title"
-            name="title"
-            required
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                required
             )
         div(class="form-group") 
             label(for="category_id") Danh mục
-            select(name="category_id"
-                    id="category_id"
-                    class="form-control")   
+            select(name="category_id" id="category_id" class="form-control")   
                 option(value="") --Chọn danh mục cha--
                 if (category)
                     +select-category(category)
         div(class="form-group")
             label(for="desc") Mô tả
             textarea(
-            class="form-control"
-            id="desc"
-            name="description"
-            rows="5"
+                class="form-control"
+                id="desc"
+                name="description"
+                rows="5"
             )
-        
         div(class="form-group") 
             label(for="price") Giá
             input(
@@ -47,29 +45,28 @@ block main
                 name="price"
                 value="0"
                 min="0"
-                )
+            )
         div(class="form-group")
             label(for="discount") % Giảm giá
             input(
-            type="number"
-            class="form-control"
-            id="discount"
-            name="discountPercentage"
-            value="0"
-            min="0"
+                type="number"
+                class="form-control"
+                id="discount"
+                name="discountPercentage"
+                value="0"
+                min="0"
             )
         div(class="form-group")
             label(for="stock") Số lượng
             input(
-            type="number"
-            class="form-control"
-            id="stock"
-            name="stock"
-            value="0"   
-            min="0"
+                type="number"
+                class="form-control"
+                id="stock"
+                name="stock"
+                value="0"   
+                min="0"
             )      
-        div(class="form-group"
-            upload-image) 
+        div(class="form-group" upload-image) 
             label(for="thumbnail") Ảnh
             input(
                 type="file"
@@ -78,10 +75,8 @@ block main
                 name="thumbnail"
                 accept="image/*"
                 upload-image-input
-                )
-            img(src=""
-                upload-image-preview
-                class="image-preview")
+            )
+            img(src="" upload-image-preview class="image-preview")
         div(class="form-group")
             label(for="position") Vị trí
             input(
@@ -91,7 +86,7 @@ block main
                 name="position"
                 placeholder="Tự động tăng"
                 min="1"
-                )   
+            )   
         div(class="form-group form-check form-check-inline")
             input(
                 type="radio"
@@ -100,21 +95,41 @@ block main
                 name="status"
                 value="active"
                 checked
-                )         
+            )         
             label(for="statusActive" class="form-check-label") Hoạt động 
         div(class="form-group form-check form-check-inline")
             input(
-            type="radio"
-            class="form-check-input"
-            id="statusInActive"
-            name="status"
-            value="inactive"
+                type="radio"
+                class="form-check-input"
+                id="statusInActive"
+                name="status"
+                value="inactive"
             )
             label(for="statusInActive" class="form-check-label") Dừng hoạt động
         div(class="form-group")
             button(
-            type="submit"
-            class="btn btn-primary"
+                type="submit"
+                class="btn btn-primary"
             ) Tạo mới
+
+    // Form tải lên tệp CSV
+    form(
+        action=`${preFixAdmin}/products/upload-csv`
+        method="POST"
+        enctype="multipart/form-data"
+    )
+        div(class="form-group") 
+            label(for="csvFile") Tải lên tệp CSV
+            input(
+                type="file"
+                class="form-control-file"
+                id="csvFile"  
+                name="csvFile"
+                accept=".csv"
+            )
+        button(
+            type="submit"
+            class="btn btn-secondary"
+        ) Tải lên CSV
+
     script(src="/admin/js/product.js")
-    

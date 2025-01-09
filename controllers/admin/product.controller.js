@@ -5,6 +5,10 @@ const searchHelper = require("../../helpers/search");
 const paginationHelper = require("../../helpers/pagination");
 const systemConfig = require("../../config/system");
 const createTreeHelper = require("../../helpers/createTree");
+
+const fs = require('fs');
+const csv = require('csv-parser')
+
 // [GET] /admin/products
 module.exports.index = async (req, res) => {
   //req.query dùng để lấy các tham số trên URL sau dấu ?
@@ -222,4 +226,63 @@ module.exports.details = async (req, res) => {
   } catch (error) {
     res.redirect(`${systemConfig.prefixAdmin}/products`);
   }
+};
+
+module.exports.uploadCSV = async (req, res) => {
+  const results = [];
+
+  // Đảm bảo có tệp được tải lên
+  if (!req.file) {
+    req.flash("error", "Không có tệp nào được tải lên!");
+    return res.redirect("back"); // Chỉ gọi duy nhất một lần
+  }
+
+  // Đọc tệp CSV
+  const stream = fs.createReadStream(req.file.path)
+    .pipe(csv());
+
+  stream.on('data', (data) => {
+    // Kiểm tra các trường bắt buộc
+    if (!data.title || !data.price || isNaN(data.price)) {
+      // Gọi res.redirect chỉ một lần và ngừng xử lý
+      req.flash("error", "Tệp CSV không hợp lệ! Thiếu trường bắt buộc!");
+      stream.destroy(); // Dừng stream
+      return res.redirect("back");
+    }
+
+    // Thêm các trường cần thiết vào kết quả
+    results.push({
+      title: data.title, // Tên sản phẩm
+      description: data.description || "", // Mô tả sản phẩm
+      price: parseFloat(data.price), // Giá sản phẩm
+      discountPercentage: parseFloat(data.discountPercentage) || 0, // Phần trăm giảm giá
+      stock: parseInt(data.stock) || 0, // Số lượng tồn kho
+      thumbnail: data.thumbnail || "", // Hình ảnh sản phẩm
+      status: data.status || "active", // Trạng thái sản phẩm
+      position: parseInt(data.position) || 0, // Vị trí sản phẩm
+      // Bạn có thể thêm các trường khác nếu cần
+    });
+  });
+
+  stream.on('end', async () => {
+    // Lưu tất cả sản phẩm vào database
+    try {
+      for (const item of results) {
+        const product = new Product(item);
+        await product.save();
+      }
+      req.flash("success", "Đã thêm sản phẩm từ tệp CSV thành công!");
+      res.redirect(`${systemConfig.prefixAdmin}/products`); // Chỉ gọi một lần
+    } catch (error) {
+      req.flash("error", "Có lỗi xảy ra khi thêm sản phẩm từ tệp CSV!");
+      console.log(error);
+      res.redirect("back"); // Chỉ gọi một lần
+    }
+  });
+
+  stream.on('error', (error) => {
+    req.flash("error", "Có lỗi xảy ra khi đọc tệp CSV!");
+    console.log(error);
+    res.redirect("back"); // Chỉ gọi một lần
+  });
 };
