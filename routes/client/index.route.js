@@ -19,6 +19,9 @@ const babygRoute = require("./babyg.route");
 const searchRoute = require("./search.route");
 const userRoute = require("./user.route");
 const cartRoute = require("./cart.route");
+const casioRoute = require("./casio.route");
+const rolexRoute = require("./rolex.route");
+const fossilRoute = require("./fossil.route");
 
 const userMiddleware = require("../../middleware/client/user.middleware.js");
 
@@ -43,6 +46,9 @@ module.exports = (app) => {
   app.use('/versace', versaceRoute);
   app.use('/babyg', babygRoute);
   app.use('/search', searchRoute);
+  app.use('/casio', casioRoute);
+  app.use('/rolex', rolexRoute);
+  app.use('/fossil', fossilRoute);
   
   app.use(cartmiddleware.cartId);
   app.use('/cart', cartRoute);
