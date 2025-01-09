@@ -9,20 +9,21 @@ block main
   .container.my-3 
     .row 
       .col-12 
-        +box-head("Giỏ hàng")
+        div(class="text-white")
+          +box-head("Giỏ hàng")
 
     .row 
       .col-12 
         table(class="table table-bordered")
           thead 
             tr 
-              th STT
-              th Ảnh
-              th Tên
-              th Giá
-              th Số lượng
-              th Tổng tiền
-              th Hành động
+              th(class="text-white") STT
+              th(class="text-white") Ảnh
+              th(class="text-white") Tên
+              th(class="text-white") Giá
+              th(class="text-white") Số lượng
+              th(class="text-white") Tổng tiền
+              th(class="text-white") Hành động
           tbody
             if(cartDetail.products.length > 0)
               each item, index in cartDetail.products
@@ -32,7 +33,7 @@ block main
                     img(src=item.productInfo.thumbnail, alt=item.productInfo.title width="80px")
                   td
                     a(href=`/products/detail/${item.productInfo.slug}`) #{item.productInfo.title}
-                  td #{item.productInfo.priceNew}$
+                  td(class="text-white") #{item.productInfo.priceNew}$
                   td 
                     form(
                       action=`/cart/update-quantity/${item.product_id}`
@@ -51,7 +52,7 @@ block main
                         class="btn btn-primary btn-sm ms-2"
                         style="display: inline-block;"
                       ) Cập nhật
-                  td #{item.totalPrice}$
+                  td(class="text-white") #{item.totalPrice}$
                   td 
                     a(
                       href=`/cart/delete/${item.product_id}`
@@ -60,7 +61,7 @@ block main
             else 
               p Không có sản phẩm nào trong giỏ hàng!
 
-        h3(class="text-end") Tổng đơn hàng : #{cartDetail.totalPrice}$
+        h3(class="text-end",class="text-white" ) Tổng đơn hàng : #{cartDetail.totalPrice}$
 
         div(class="text-end mt-3")  
-          a(href="/checkout" class="btn btn-success") THANH TOÁN
+          a(href="/checkout" class="btn btn-success text-white") THANH TOÁN
