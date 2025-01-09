@@ -11,4 +11,7 @@ router.get("/delete/:productId", controller.delete);
 
 router.get("/update/:productId/:quantity", controller.update);
 
+// Route cập nhật số lượng sản phẩm
+router.post("/update-quantity/:productId", controller.updateQuantity);
+
 module.exports = router;

@@ -409,3 +409,7 @@
   cursor: pointer;
 }
 /* End Show Alert */
+
+.container .my-3{
+  background-color: #fff;
+}
