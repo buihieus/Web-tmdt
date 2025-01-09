@@ -5,6 +5,11 @@ const searchHelper = require("../../helpers/search");
 const paginationHelper = require("../../helpers/pagination");
 const systemConfig = require("../../config/system");
 const createTreeHelper = require("../../helpers/createTree");
+const iconv = require('iconv-lite'); 
+
+const fs = require('fs');
+const csv = require('csv-parser')
+
 // [GET] /admin/products
 module.exports.index = async (req, res) => {
   //req.query dùng để lấy các tham số trên URL sau dấu ?
@@ -145,10 +150,14 @@ module.exports.create = async (req, res) => {
 };
 
 //[POST] /admin/products/create
+// [POST] /admin/products/create
 module.exports.createPost = async (req, res) => {
   req.body.price = parseInt(req.body.price);
   req.body.discountPercentage = parseInt(req.body.discountPercentage);
   req.body.stock = parseInt(req.body.stock);
+  
+  // Thêm dòng này để xử lý trường branch
+  req.body.branch = req.body.branch || ""; 
 
   if (req.body.position == "") {
     const countProducts = await Product.countDocuments();
@@ -185,6 +194,7 @@ module.exports.edit = async (req, res) => {
 };
 
 //[PATCH] /admin/products/edit/:id
+// [PATCH] /admin/products/edit/:id
 module.exports.editPatch = async (req, res) => {
   const id = req.params.id;
   req.body.price = parseInt(req.body.price);
@@ -192,15 +202,18 @@ module.exports.editPatch = async (req, res) => {
   req.body.stock = parseInt(req.body.stock);
   req.body.position = parseInt(req.body.position);
   
+  // Thêm dòng này để xử lý trường branch
+  req.body.branch = req.body.branch || ""; 
+
   if (req.file) {
-    req.body.thumbnail = `/uploads/${req.file.filename}`; //Lưu link ảnh vào database
+    req.body.thumbnail = `/uploads/${req.file.filename}`; // Lưu link ảnh vào database
   }
-  // console.log(req.body);
+  
   try {
     await Product.updateOne({_id: id}, req.body);
-    req.flash("success","Đã cập nhật thành công!");
+    req.flash("success", "Đã cập nhật thành công!");
   } catch (error) {
-    req.flash("error","Cập nhật thất bại!");
+    req.flash("error", "Cập nhật thất bại!");
     console.log(error);
   }
   res.redirect("back");
@@ -222,4 +235,63 @@ module.exports.details = async (req, res) => {
   } catch (error) {
     res.redirect(`${systemConfig.prefixAdmin}/products`);
   }
+};
+
+module.exports.uploadCSV = async (req, res) => {
+  const results = [];
+
+  // Đảm bảo có tệp được tải lên
+  if (!req.file) {
+    req.flash("error", "Không có tệp nào được tải lên!");
+    return res.redirect("back");
+  }
+
+  // Đọc tệp CSV với mã hóa UTF-8
+  const stream = fs.createReadStream(req.file.path)
+    .pipe(iconv.decodeStream('utf-8')) // Chuyển đổi mã hóa sang UTF-8
+    .pipe(csv());
+
+  stream.on('data', (data) => {
+    // Kiểm tra các trường bắt buộc
+    if (!data.title || isNaN(data.price) || !data.price) {
+      req.flash("error", "Tệp CSV không hợp lệ! Thiếu trường bắt buộc hoặc giá không hợp lệ!");
+      stream.destroy(); // Dừng stream
+      return res.redirect("back");
+    }
+
+    // Thêm các trường cần thiết vào kết quả
+    results.push({
+      title: data.title,
+      description: data.description || "",
+      price: parseFloat(data.price),
+      discountPercentage: parseFloat(data.discountPercentage) || 0,
+      stock: parseInt(data.stock) || 0,
+      thumbnail: data.thumbnail || "",
+      status: data.status || "active",
+      position: parseInt(data.position) || 0,
+      brand: data.brand || "",
+    });
+  });
+
+  stream.on('end', async () => {
+    // Lưu tất cả sản phẩm vào database
+    try {
+      for (const item of results) {
+        const product = new Product(item);
+        await product.save();
+      }
+      req.flash("success", "Đã thêm sản phẩm từ tệp CSV thành công!");
+      res.redirect(`${systemConfig.prefixAdmin}/products`);
+    } catch (error) {
+      req.flash("error", "Có lỗi xảy ra khi thêm sản phẩm từ tệp CSV!");
+      console.log(error);
+      res.redirect("back");
+    }
+  });
+
+  stream.on('error', (error) => {
+    req.flash("error", "Có lỗi xảy ra khi đọc tệp CSV!");
+    console.log(error);
+    res.redirect("back");
+  });
 };
