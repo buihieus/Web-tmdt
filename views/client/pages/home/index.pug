@@ -1,7 +1,9 @@
 extends ../../layouts/default.pug
 include ../../mixins/products-layout.pug
+include ../../mixins/show-alert.pug
 
 block main
+ +alert-success(2000)
  .content-wrapper
   section.hero-section(aria-label="Featured Collection")
     .hero-content

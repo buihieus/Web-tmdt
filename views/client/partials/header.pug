@@ -23,20 +23,25 @@ body
           //-   alt="Voice Search" 
           //-   src="/img/voice-search.png"
           //- )
-      if(user)    
-        button.cart-button(
-            aria-label="Giỏ hàng, 0 sản phẩm" 
-            type="button"
-            )
-            img.cart-icon(
-              height="36" 
-              width="36" 
-              aria-hidden="true" 
-              alt="" 
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/a53073b0b5d64aceb4778af48ce07f0dbc562d59dbb550d88f014cdfeb270dcf?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" 
-              loading="lazy"
-              )
-            span.cart-count(aria-hidden="true") 0
+      if(user)
+        a.cart-link(href="/cart" aria-label="Đi đến trang giỏ hàng")    
+              button.cart-button(
+                  aria-label="Giỏ hàng, 0 sản phẩm" 
+                  type="button"
+                  )
+                  img.cart-icon(
+                    height="36" 
+                    width="36" 
+                    aria-hidden="true" 
+                    alt="" 
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/a53073b0b5d64aceb4778af48ce07f0dbc562d59dbb550d88f014cdfeb270dcf?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c" 
+                    loading="lazy"
+                    )
+                  span.cart-count(aria-hidden="true")
+                    if miniCart && miniCart.totalQuantity
+                      = miniCart.totalQuantity
+                    else
+                      = 0
       .auth-buttons
         if (user) 
           .user-section

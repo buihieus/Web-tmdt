@@ -3,7 +3,7 @@ extends ../../layouts/default.pug
 block main
   link(rel="stylesheet", href="/css/product.css")
   section.trending-section(aria-labelledby="trending-title")
-    h2#trending-title.section-title BABY G
+    h2#trending-title.section-title #{categoryName}
     .products-container
       .products-grid
         each product in products
@@ -23,9 +23,13 @@ block main
               .price-container
                 span.product-price(aria-label=`Current price: $${Math.ceil(product.price * (100 - product.discountPercentage) / 100)} dollars`) $#{Math.ceil(product.price * (100 - product.discountPercentage) / 100)}
                 span.original-price(aria-label=`Original price: $${product.price} dollars`) $#{product.price}
-            button.add-to-cart-btn(aria-label=`Add ${product.title} to cart`)
-              span.btn-text Thêm vào giỏ hàng
-              span.btn-icon 🛒
+            form(
+              action=`/cart/add/${product.id}`
+              method="POST"
+            )
+              button.add-to-cart-btn(type="submit" aria-label=`Add ${product.title} to cart`)
+                span.btn-text Thêm vào giỏ hàng
+                span.btn-icon 🛒
     // Hiển thị nút phân trang
     nav.pagination
       if currentPage > 1

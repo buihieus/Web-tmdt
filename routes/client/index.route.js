@@ -1,5 +1,6 @@
 const productRoutes = require("./product.route");
 const homeRoutes = require("./home.route");
+const cartmiddleware = require("../../middleware/client/cart.middleware");
 // Import route "guidebuyonline"
 const guidebuyonlineRoute = require('./guidebuyonline.route');
 
@@ -17,6 +18,7 @@ const versaceRoute = require("./versace.route");
 const babygRoute = require("./babyg.route");
 const searchRoute = require("./search.route");
 const userRoute = require("./user.route");
+const cartRoute = require("./cart.route");
 
 const userMiddleware = require("../../middleware/client/user.middleware.js");
 
@@ -41,4 +43,7 @@ module.exports = (app) => {
   app.use('/versace', versaceRoute);
   app.use('/babyg', babygRoute);
   app.use('/search', searchRoute);
+  
+  app.use(cartmiddleware.cartId);
+  app.use('/cart', cartRoute);
 }
