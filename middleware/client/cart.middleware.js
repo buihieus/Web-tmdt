@@ -2,6 +2,10 @@ const Cart = require("../../models/cart.model");
 
 module.exports.cartId = async (req, res, next) => {
   try {
+    if (req.path.startsWith('/admin')) {
+      return next(); 
+    }
+    
     if (!req.cookies.cartId) {
       const cart = new Cart();
       const savedCart = await cart.save();
