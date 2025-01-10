@@ -1,25 +1,28 @@
-mixin product-item(item)
+mixin product-item(product)
   article.product-card
     .product-images-container
-      .discount-badge -#{item.discountPercentage}% 
+      .discount-badge -#{product.discountPercentage}%
       img.product-images(
         loading="lazy"
-        alt=item.title
-        src=item.thumbnail
+        alt=product.title
+        src=product.thumbnail
       )
-      button.quick-view-btn(aria-label=`Quick view ${item.title}`) Quick View
+      button.quick-view-btn(
+        aria-label=`Quick view ${product.title}`
+        onclick=`window.location.href='/products/detail/${product._id}'`
+      ) Quick View
+     
     .product-info
-      if parseInt(item.featured) == 1
+      if parseInt(product.featured) == 1
         .featured-badge Nổi bật
-      h3.product-title #{item.title}
+      h3.product-title #{product.title}
       .price-container
-        span.product-price(aria-label=`Current price: $${Math.ceil(item.price * (100 - item.discountPercentage) / 100)} dollars`) $#{Math.ceil(item.price * (100 - item.discountPercentage) / 100)}
-        span.original-price(aria-label=`Original price: $${item.price} dollars`) $#{item.price}
+        span.product-price(aria-label=`Current price: $${Math.ceil(product.price * (100 - product.discountPercentage) / 100)} dollars`) $#{Math.ceil(product.price * (100 - product.discountPercentage) / 100)}
+        span.original-price(aria-label=`Original price: $${product.price} dollars`) $#{product.price}
       form(
-        action=`/cart/add/${item.id}`
+        action=`/cart/add/${product.id}`
         method="POST"
       )
-        button.add-to-cart-btn(type="submit" aria-label=`Add ${item.title} to cart`)
+        button.add-to-cart-btn(type="submit" aria-label=`Add ${product.title} to cart`)
           span.btn-text Thêm vào giỏ hàng
           span.btn-icon 🛒
-

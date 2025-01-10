@@ -15,7 +15,11 @@ block main
                 alt=product.title
                 src=product.thumbnail
               )
-              button.quick-view-btn(aria-label=`Quick view ${product.title}`) Quick View
+              button.quick-view-btn(
+                aria-label=`Quick view ${product.title}`
+                onclick=`window.location.href='/products/detail/${product._id}'`
+              ) Quick View
+
 
             .product-info
               if parseInt(product.featured) === 1
