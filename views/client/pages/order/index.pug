@@ -86,13 +86,46 @@ block main
 
       // JavaScript để xử lý sự kiện
       script.
-        function selectMomoPayment() {
-          alert("Bạn đã chọn phương thức thanh toán Momo.");
-        }
-
         function proceedToPayment() {
-          // Chuyển hướng đến trang thanh toán
-          window.location.href = '/payment'; // Đường dẫn đến trang thanh toán của bạn
+          // Lấy số tiền từ phần tổng cộng
+          const totalAmountText = document.querySelector('.summary-row.total span:last-child').textContent.trim();
+          
+          // Xử lý chuỗi để lấy giá trị số
+          const totalAmount = totalAmountText.replace('₫', '').replace(/\./g, '').trim(); // Xóa ký tự ₫ và dấu chấm
+          
+          // Kiểm tra giá trị tổng cộng
+          if (parseInt(totalAmount) < 1000) {
+            alert("Số tiền thanh toán phải lớn hơn 1000 VND.");
+            return;
+          }
+          if (parseInt(totalAmount) > 50000000) {
+            alert("Số tiền thanh toán phải nhỏ hơn 50 triệu VND.");
+            return;
+          }
+
+          const paymentData = {
+            amount: totalAmount, // Sử dụng giá trị tổng cộng
+          };
+
+          fetch('/payment', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(paymentData),
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data); // Xử lý dữ liệu trả về từ server
+            if (data && data.payUrl) {
+              window.location.href = data.payUrl; // Chuyển hướng đến trang thanh toán
+            } else {
+              console.error('Không có URL thanh toán trong phản hồi:', data);
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
         }
 
       style
