@@ -1,31 +1,70 @@
 extends ../../layouts/default.pug
 include ../../mixins/show-alert.pug
 
-
 block main
   .container.my-3
     .row
       .col-12
-        if (product.title)
-          h1(class="mb-4") #{product.title}
-        if (product.price)
-          div(class="mb-4") Giá: <b>#{product.price}$</b>
-        if (product.discountPercentage)
-          div(class="mb-4") Giảm giá: <b>#{product.discountPercentage}%</b>
-        if (product.stock)
-          div(class="mb-4") Còn lại: <b>#{product.stock}</b>
-        if (product.thumbnail)
-          div(class="mb-4")
-            img(
-              src=product.thumbnail
-              style="width: 100px"
-            )
-        if(product.description)
-          div(class="mb-4") #{product.description}
+        // Hiển thị hình ảnh sản phẩm
+        .product-gallery
+          .main-image
+            img.product-image(alt=product.title src=product.thumbnail)
+            img(alt="" src="icons/next.svg")
+            // Bạn có thể thêm các thumbnail khác từ product nếu có
 
+        // Hiển thị thông tin sản phẩm
+        .product-info
+          h1.product-title #{product.title}
+          .product-price
+            span.current-price #{product.price}₫
+            span.product-type Movement type: Automatic
+          .product-meta
+            p.brand Brand: Jacob & Co
+            p.origin Brand Origin: Switzerland
+        // Chi tiết sản phẩm
+        section.product-details
+          h2 Product Details
+          dl.details-grid
+            .details-row
+              dt Product Code
+              dd #{product._id}
+            .details-row
+              dt Origin
+              dd Switzerland
+            .details-row
+              dt Gender
+              dd Men's
+            .details-row
+              dt Movement
+              dd JCAM45 mechanical movement, 21 jewels, 28800vph, 48 hour power reserve
+            .details-row
+              dt Case Size
+              dd 44 mm
+            .details-row
+              dt Thickness
+              dd 13.05 mm
+            .details-row
+              dt Case Color
+              dd Rose Gold
+            .details-row
+              dt Case Material
+              dd 18K Rose Gold
+            .details-row
+              dt Band Type
+              dd Fabric
+            .details-row
+              dt Crystal
+              dd Sapphire
+            .details-row
+              dt Water Resistance
+              dd 50m
+            .details-row
+              dt Warranty
+              dd 2 Year International
+            .details-row
+              dt Price
+              dd #{product.price}₫
 
-    form(
-      action=`/cart/add/${product._id}`
-      method="POST"
-    )
+    // Form để thêm vào giỏ hàng
+    form(action=`/cart/add/${product._id}` method="POST")
       button.btn.btn-primary(type="submit") Thêm vào giỏ hàng
