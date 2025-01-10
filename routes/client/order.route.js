@@ -1,12 +1,9 @@
-const express = require("express");
+// routes/client/guidebuyonline.route.js
+const express = require('express');
 const router = express.Router();
-
 const orderController = require("../../controllers/client/order.controller");
 
-// Route to display the payment page
-router.get("/", orderController.index);
-
-// Route to handle the checkout process
-router.post("/checkout", orderController.checkout);
+// Đảm bảo định nghĩa đúng route cho trang hướng dẫn mua hàng online
+router.get('/', orderController.index);
 
 module.exports = router;

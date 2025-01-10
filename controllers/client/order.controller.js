@@ -1,8 +1,7 @@
 const Cart = require("../../models/cart.model");
-const Product = require("../../models/product.model");
-const Order = require("../../models/order.model"); // Assuming you have an Order model
+const Order = require("../../models/order.model");
+const Product = require("../../models/product.model"); // Giả sử bạn có mô hình sản phẩm
 
-// [GET] /payment
 module.exports.index = async (req, res) => {
     try {
         const userId = req.user._id;
@@ -12,64 +11,56 @@ module.exports.index = async (req, res) => {
             return res.status(401).send("Unauthorized");
         }
 
+        const selectedItems = req.query.itemIds ? req.query.itemIds.split(',') : []; // Nhận itemIds từ query string
+
+        // Kiểm tra nếu không có sản phẩm nào được chọn
+        if (selectedItems.length === 0) {
+            req.flash("error", "Bạn chưa chọn sản phẩm nào để thanh toán!");
+            return res.redirect("/cart");
+        }
+
         const cart = await Cart.findOne({ user_id: userId });
 
         if (!cart || cart.products.length === 0) {
-            console.error("Cart is empty or not found for userId:", userId);
             req.flash("error", "Giỏ hàng của bạn đang trống!");
             return res.redirect("/cart");
         }
 
-        // Calculate total price if necessary
-        cart.totalPrice = cart.products.reduce(
-            (sum, item) => sum + (item.totalPrice || 0),
-            0
+        // Lọc các sản phẩm đã được chọn từ giỏ hàng
+        const selectedProducts = cart.products.filter(item => 
+            selectedItems.includes(item.product_id.toString()) // So sánh với product_id
         );
+
+        // Log các sản phẩm đã chọn
+        console.log("Selected Products:", selectedProducts);
+
+        if (selectedProducts.length === 0) {
+            req.flash("error", "Không tìm thấy sản phẩm đã chọn trong giỏ hàng!");
+            return res.redirect("/cart");
+        }
+
+        // Lấy thông tin chi tiết sản phẩm từ cơ sở dữ liệu
+        const detailedProducts = await Promise.all(selectedProducts.map(async (item) => {
+            const product = await Product.findById(item.product_id); // Lấy thông tin sản phẩm
+            return {
+                product_id: item.product_id,
+                title: product.title,
+                thumbnail: product.thumbnail,
+                price: product.price,
+                quantity: item.quantity,
+                totalPrice: product.price * item.quantity
+            };
+        }));
+
+        // Tính tổng giá cho các sản phẩm đã chọn
+        const totalPrice = detailedProducts.reduce((sum, item) => sum + (item.totalPrice || 0), 0);
 
         res.render("client/pages/order/index.pug", {
             pageTitle: "Phương thức thanh toán",
-            cartDetail: cart,
+            cartDetail: { products: detailedProducts, totalPrice }
         });
     } catch (error) {
         console.error("Error in /payment:", error);
-        res.status(500).send("Internal server error");
-    }
-};
-
-// [POST] /payment/checkout
-module.exports.checkout = async (req, res) => {
-    try {
-        const userId = req.user._id; 
-        const paymentMethod = req.body.paymentMethod; 
-
-        if (!userId) {
-            console.error("User is not authenticated");
-            return res.status(401).send("Unauthorized");
-        }
-
-        const cart = await Cart.findOne({ user_id: userId });
-
-        if (!cart || cart.products.length === 0) {
-            req.flash("error", "Giỏ hàng của bạn đang trống!");
-            return res.redirect("/cart");
-        }
-
-        const order = new Order({
-            user_id: userId,
-            products: cart.products,
-            totalPrice: cart.totalPrice,
-            paymentMethod: paymentMethod,
-            status: 'Pending' // or any initial status
-        });
-
-        await order.save();
-
-        await Cart.deleteOne({ user_id: userId });
-
-        req.flash("success", "Thanh toán thành công!");
-        res.redirect(`/order/${order._id}`); 
-    } catch (error) {
-        console.error("Error in /payment/checkout:", error);
         res.status(500).send("Internal server error");
     }
 };

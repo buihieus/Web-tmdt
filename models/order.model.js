@@ -60,7 +60,7 @@ OrderSchema.pre("save", function (next) {
 
 // Middleware để tính toán tổng giá khi lưu
 OrderSchema.pre("save", function (next) {
-    if (this.isModified('products')) { // Chỉ tính toán lại nếu sản phẩm thay đổi
+    if (this.isModified('products')) {
         this.totalPrice = this.products.reduce((sum, product) => sum + product.totalPrice, 0);
     }
     next();

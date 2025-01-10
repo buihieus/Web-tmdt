@@ -3,67 +3,115 @@ extends ../../layouts/default.pug
 block main
   .payment-container
     section.payment-section(aria-labelledby="payment-title")
-      h1#payment-title.payment-title Select Payment Method
+      h1#payment-title.payment-title Chọn Phương Thức Thanh Toán
       
       .payment-methods
         button.payment-method-item(aria-label="Pay with Cash on Delivery")
           img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/a996efd6f9e26debc2ba5635d07f0207ba7359e277012b7152a4acf6bd3f0545?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
-          span.payment-text Cash on Delivery
-        button.payment-method-item(aria-label="Pay with Momo E-Wallet")
+          span.payment-text Thanh Toán Khi Nhận Hàng
+        button.payment-method-item(aria-label="Pay with Momo E-Wallet" onclick="selectMomoPayment()")
           img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/cd8bea25960f90cd4b3b6b37c50b82d5cad20f74c5298f04c51b3063bf73c2f8?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
-          span.payment-text Momo E-Wallet
+          span.payment-text Ví Điện Tử Momo
 
       .payment-methods
         button.payment-method-item(aria-label="Pay with VNPay E-Wallet")
           img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/67702fe6bb98046efb8ef11ed4e0487d87bff766e073a523cce13e0e7bb4104e?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
-          span.payment-text VNPay E-Wallet
+          span.payment-text Ví Điện Tử VNPay
         button.payment-method-item(aria-label="Pay with Credit/Debit Card")
           img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/337dcc7d0038608e2243c2437be46f958982385bcf04b54e6139f2578027bfe8?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
-          span.payment-text Credit/Debit Card
+          span.payment-text Thẻ Tín Dụng/Ghi Nợ
 
-      h2#order-summary.payment-title Your Order
+      h2#order-summary.payment-title Thông Tin Đặt Hàng
       
       .order-section(role="table", aria-labelledby="order-summary")
         .order-header(role="row")
-          span(role="columnheader") Product
+          span(role="columnheader") Sản Phẩm
           .order-header-details
-            span(role="columnheader") Price
-            span(role="columnheader") Quantity
-            span(role="columnheader") Total
-        .order-item(role="row")
-          input(type="checkbox", id="item1", class="order-select", aria-label="Select Longines Watch")
-          img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/0d77b16859cc362f1fdb4a8114183937c4562bf6da0bb2ee5962ca492ebe5fe4?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="Longines Watch", class="product-image")
-          span(role="cell", class="product-name") Longines Watch - Men L2.821.5.57.7
-          span(role="cell", class="product-price") 58,500,000₫
-          .quantity-controls(role="cell")
-            button.quantity-btn(aria-label="Decrease quantity") -
-            span.quantity 1
-            button.quantity-btn(aria-label="Increase quantity") +
-          span(role="cell", class="product-total") 58,500,000₫
-          button.remove-item(aria-label="Remove item") ×
-        .order-item(role="row")
-          input(type="checkbox", id="item2", class="order-select", aria-label="Select Longines Watch")
-          img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/0d77b16859cc362f1fdb4a8114183937c4562bf6da0bb2ee5962ca492ebe5fe4?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="Longines Watch", class="product-image")
-          span(role="cell", class="product-name") Longines Watch - Men L2.821.5.57.7
-          span(role="cell", class="product-price") 58,500,000₫
-          .quantity-controls(role="cell")
-            button.quantity-btn(aria-label="Decrease quantity") -
-            span.quantity 1
-            button.quantity-btn(aria-label="Increase quantity") +
-          span(role="cell", class="product-total") 58,500,000₫
-          button.remove-item(aria-label="Remove item") ×
+            span(role="columnheader") Giá
+          .order-header-details
+            span(role="columnheader") Số Lượng
+          .order-header-details
+            span(role="columnheader") Tổng Cộng
+        
+        // Lặp qua các sản phẩm trong cartDetail.products
+        each item in cartDetail.products
+          .order-item(role="row")
+            input(
+              type="checkbox"
+              id=`item${item.product_id}`
+              class="order-select"
+              aria-label=`Chọn ${item.title || 'Sản phẩm không xác định'}`
+            )
+            img(
+              src=item.thumbnail || '#'
+              alt=item.title || 'Sản phẩm không xác định'
+              class="product-image"
+            )
+            span(role="cell", class="product-name") #{item.title || 'Sản phẩm không xác định'}
+            span(role="cell", class="product-price") #{item.price || '0₫'}₫
+            .quantity-controls(role="cell")
+              button.quantity-btn(aria-label="Giảm số lượng") -
+              span.quantity #{item.quantity}
+              button.quantity-btn(aria-label="Tăng số lượng") +
+            span(role="cell", class="product-total") #{item.totalPrice}₫
+            button.remove-item(aria-label="Xóa sản phẩm") 
 
       .order-summary
         .summary-row
-          span Subtotal:
-          span 117,000,000₫
+          span Tổng phụ:
+          span #{cartDetail.totalPrice}₫
         .summary-row
-          span Shipping:
-          span Free
+          span Vận chuyển:
+          span Miễn phí
         .summary-row.total
-          span Total:
-          span 117,000,000₫
+          span Tổng cộng:
+          span #{cartDetail.totalPrice}₫
+
+      h2#customer-info.payment-title Thông Tin Khách Hàng
+      
+      .customer-info
+        .input-group
+          label(for="customer-name") Tên:
+          input(type="text" id="customer-name" placeholder="Nhập tên của bạn" required)
+        .input-group
+          label(for="customer-phone") Số Điện Thoại:
+          input(type="tel" id="customer-phone" placeholder="Nhập số điện thoại" required)
+        .input-group
+          label(for="customer-address") Địa Chỉ:
+          input(type="text" id="customer-address" placeholder="Nhập địa chỉ của bạn" required)
 
       .action-buttons
-        button.back-button(aria-label="Go back") Back
-        button.confirm-button(aria-label="Confirm order") Confirm Order
+        button.back-button(aria-label="Quay lại") Quay lại
+        button.confirm-button(aria-label="Tiến hành thanh toán" onclick="proceedToPayment()") Tiến Hành Thanh Toán
+
+      // JavaScript để xử lý sự kiện
+      script.
+        function selectMomoPayment() {
+          alert("Bạn đã chọn phương thức thanh toán Momo.");
+        }
+
+        function proceedToPayment() {
+          // Chuyển hướng đến trang thanh toán
+          window.location.href = '/payment'; // Đường dẫn đến trang thanh toán của bạn
+        }
+
+      style
+        | .input-group {
+        |   margin-bottom: 15px;
+        | }
+        | .input-group label {
+        |   display: block;
+        |   margin-bottom: 5px;
+        |   font-weight: bold;
+        | }
+        | .input-group input {
+        |   width: 100%;
+        |   padding: 10px;
+        |   border: 1px solid #ccc;
+        |   border-radius: 5px;
+        |   box-sizing: border-box;
+        | }
+        | .input-group input:focus {
+        |   border-color: #007bff;
+        |   outline: none;
+        | }
