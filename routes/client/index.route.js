@@ -1,9 +1,7 @@
 const productRoutes = require("./product.route");
 const homeRoutes = require("./home.route");
 const cartmiddleware = require("../../middleware/client/cart.middleware");
-// Import route "guidebuyonline"
 const guidebuyonlineRoute = require('./guidebuyonline.route');
-
 const paymentguideRoute = require('./paymentguide.route');
 const shippingpolicyRoute = require('./shippingpolicy.route');
 const transactionconditionsRoute = require('./transactionconditions.route');
@@ -22,18 +20,33 @@ const cartRoute = require("./cart.route");
 const casioRoute = require("./casio.route");
 const rolexRoute = require("./rolex.route");
 const fossilRoute = require("./fossil.route");
+const tissotRoute = require("./tissot.route");
+const citizenRoute = require("./citizen.route");
+const oldRoute = require("./old.route");
+const wallRoute = require("./wall.route");
+const luxuryRoute = require("./luxury.route");
+const casiosheenRoute = require("./casiosheen.route");
+const bulovaRoute = require("./bulova.route");
+const gshockRoute = require("./gshock.route");
+const seikoRoute = require("./seiko.route");
+const certinaRoute = require("./certina.route");
+const calvinkleinRoute = require("./calvinklein.route");
+const hublotRoute = require("./hublot.route");
+
+// Import the payment routes
+const orderRoutes = require("./order.route.js");
 
 const userMiddleware = require("../../middleware/client/user.middleware.js");
 
-//sử dụng trong file index.js chính
+// Use in main index.js file
 module.exports = (app) => {
   app.use('/', homeRoutes);
   app.use(userMiddleware.infoUser);
 
   app.use('/products', productRoutes);
-  app.use('/guidebuyonline',guidebuyonlineRoute);
-  app.use('/paymentguide',paymentguideRoute);
-  app.use('/shippingpolicy',shippingpolicyRoute);
+  app.use('/guidebuyonline', guidebuyonlineRoute);
+  app.use('/paymentguide', paymentguideRoute);
+  app.use('/shippingpolicy', shippingpolicyRoute);
   app.use('/transactionconditions', transactionconditionsRoute);
   app.use('/privacypolicy', privacypolicyRoute);
   app.use('/warrantypolicy', warrantypolicyRoute);
@@ -49,7 +62,22 @@ module.exports = (app) => {
   app.use('/casio', casioRoute);
   app.use('/rolex', rolexRoute);
   app.use('/fossil', fossilRoute);
+  app.use('/tissot', tissotRoute);
+  app.use('/citizen', citizenRoute);
+  app.use('/old', oldRoute);
+  app.use('/wall', wallRoute);
+  app.use('/luxury', luxuryRoute);
+  app.use('/casio-sheen', casiosheenRoute);
+  app.use('/bulova', bulovaRoute);
+  app.use('/gshock', gshockRoute);
+  app.use('/seiko', seikoRoute);
+  app.use('/certina', certinaRoute);
+  app.use('/calvinklein', calvinkleinRoute);
+  app.use('/hublot', hublotRoute);
   
   app.use(cartmiddleware.cartId);
   app.use('/cart', cartRoute);
+
+  // Add the payment routes
+  app.use('/order', orderRoutes);
 }

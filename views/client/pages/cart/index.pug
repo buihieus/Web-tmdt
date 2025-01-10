@@ -14,54 +14,93 @@ block main
 
     .row 
       .col-12 
-        table(class="table table-bordered")
-          thead 
-            tr 
-              th(class="text-white") STT
-              th(class="text-white") Ảnh
-              th(class="text-white") Tên
-              th(class="text-white") Giá
-              th(class="text-white") Số lượng
-              th(class="text-white") Tổng tiền
-              th(class="text-white") Hành động
-          tbody
-            if(cartDetail.products.length > 0)
-              each item, index in cartDetail.products
-                tr 
-                  td(class="text-white") #{index + 1}
-                  td
-                    img(src=item.productInfo.thumbnail, alt=item.productInfo.title width="80px")
-                  td
-                    a(href=`/products/detail/${item.productInfo.slug}`) #{item.productInfo.title}
-                  td(class="text-white") #{item.productInfo.priceNew}$
-                  td 
-                    form(
-                      action=`/cart/update-quantity/${item.product_id}`
-                      method="POST"
-                      style="display: inline-block;"
-                    )
-                      input(
-                        type="number"
-                        name="quantity"
-                        value=item.quantity
-                        min="1"
-                        style="width: 60px"
-                      )
-                      button(
-                        type="submit"
-                        class="btn btn-primary btn-sm ms-2"
-                        style="display: inline-block;"
-                      ) Cập nhật
-                  td(class="text-white") #{item.totalPrice}$
-                  td 
-                    a(
-                      href=`/cart/delete/${item.product_id}`
-                      class="btn btn-danger"
-                    ) Xóa
-            else 
-              p Không có sản phẩm nào trong giỏ hàng!
+        div.cart-content
+          div.cart-container
+            div.cart-header
+              a(href="/" class="continue-shopping" aria-label="Continue shopping")
+                svg.back-icon(width="34" height="34" viewBox="0 0 34 34" fill="none")
+                  path(d="M20 8L12 17L20 26" stroke="#3097F9" stroke-width="2")
+                span Mua thêm sản phẩm khác
+              h1.cart-title Giỏ hàng của bạn
 
-        h3(class="text-end",class="text-white" ) Tổng đơn hàng : #{cartDetail.totalPrice}$
+            div.cart-table
+              div.cart-table-header
+                div.header-item.product Sản phẩm
+                div.header-item.price Đơn giá
+                div.header-item.quantity Số lượng
+                div.header-item.total Số tiền
 
-        div(class="text-end mt-3")  
-          a(href="/checkout" class="btn btn-success text-white") THANH TOÁN
+              div.cart-items
+                if(cartDetail.products.length > 0)
+                  each item, index in cartDetail.products
+                    div.cart-item(data-product-id=item.product_id)
+                      label.select-item
+                        input(type="checkbox" class="item-checkbox")
+                        span.checkmark
+                      div.item-details
+                        img.item-image(src=item.productInfo.thumbnail, alt=item.productInfo.title)
+                        div.item-info
+                          h3.item-name #{item.productInfo.title}
+                          p.item-sku SKU: #{item.productInfo.sku}
+                      div.item-price #{item.productInfo.priceNew}₫
+                      div.quantity-controls
+                        form(
+                          action=`/cart/update-quantity/${item.product_id}`
+                          method="POST"
+                          style="display: inline-flex; align-items: center;"
+                        )
+                          input(
+                            type="number"
+                            name="quantity"
+                            value=item.quantity
+                            min="1"
+                            style="width: 30px; margin-right: 3px;"
+                          )
+                          button(
+                            type="submit"
+                            class="btn btn-primary btn-sm"
+                            style="display: inline-block;"
+                          ) Cập nhật
+                      div.item-total(id=`total-${item.product_id}`) #{item.totalPrice}₫
+                      button.remove-item(
+                          type="button"
+                          aria-label="Xóa sản phẩm"
+                          onclick=`window.location.href='/cart/delete/${item.product_id}'`
+                          class="btn btn-danger"
+                        )
+                          svg(width="24" height="24" viewBox="0 0 24 24" fill="none")
+                            path(d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor")
+                else 
+                  p Không có sản phẩm nào trong giỏ hàng!
+
+            div.cart-summary
+              div.summary-row.subtotal
+                span Tổng tiền tạm tính:
+                span.amount #{cartDetail.totalPrice}₫
+
+              div.cart-actions
+                button.btn-checkout(onclick="handleCheckout()") Thực hiện thanh toán
+                a(href="/") 
+                  button.btn-continue Tiếp tục mua hàng
+
+  script.
+    function handleCheckout() {
+      const selectedItems = [];
+      const checkboxes = document.querySelectorAll('.item-checkbox:checked');
+      
+      checkboxes.forEach(checkbox => {
+        const cartItem = checkbox.closest('.cart-item');
+        const productId = cartItem.getAttribute('data-product-id');
+        const quantity = cartItem.querySelector('input[name="quantity"]').value;
+        
+        selectedItems.push({ productId, quantity });
+      });
+
+      if (selectedItems.length === 0) {
+        alert('Vui lòng chọn ít nhất một sản phẩm để thanh toán!');
+        return;
+      }
+
+      const queryString = selectedItems.map(item => `itemId=${item.productId}&quantity=${item.quantity}`).join('&');
+      window.location.href = `/order?${queryString}`;
+    }

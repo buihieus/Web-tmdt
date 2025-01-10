@@ -1,0 +1,69 @@
+extends ../../layouts/default.pug
+
+block main
+  .payment-container
+    section.payment-section(aria-labelledby="payment-title")
+      h1#payment-title.payment-title Select Payment Method
+      
+      .payment-methods
+        button.payment-method-item(aria-label="Pay with Cash on Delivery")
+          img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/a996efd6f9e26debc2ba5635d07f0207ba7359e277012b7152a4acf6bd3f0545?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
+          span.payment-text Cash on Delivery
+        button.payment-method-item(aria-label="Pay with Momo E-Wallet")
+          img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/cd8bea25960f90cd4b3b6b37c50b82d5cad20f74c5298f04c51b3063bf73c2f8?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
+          span.payment-text Momo E-Wallet
+
+      .payment-methods
+        button.payment-method-item(aria-label="Pay with VNPay E-Wallet")
+          img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/67702fe6bb98046efb8ef11ed4e0487d87bff766e073a523cce13e0e7bb4104e?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
+          span.payment-text VNPay E-Wallet
+        button.payment-method-item(aria-label="Pay with Credit/Debit Card")
+          img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/337dcc7d0038608e2243c2437be46f958982385bcf04b54e6139f2578027bfe8?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
+          span.payment-text Credit/Debit Card
+
+      h2#order-summary.payment-title Your Order
+      
+      .order-section(role="table", aria-labelledby="order-summary")
+        .order-header(role="row")
+          span(role="columnheader") Product
+          .order-header-details
+            span(role="columnheader") Price
+            span(role="columnheader") Quantity
+            span(role="columnheader") Total
+        .order-item(role="row")
+          input(type="checkbox", id="item1", class="order-select", aria-label="Select Longines Watch")
+          img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/0d77b16859cc362f1fdb4a8114183937c4562bf6da0bb2ee5962ca492ebe5fe4?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="Longines Watch", class="product-image")
+          span(role="cell", class="product-name") Longines Watch - Men L2.821.5.57.7
+          span(role="cell", class="product-price") 58,500,000₫
+          .quantity-controls(role="cell")
+            button.quantity-btn(aria-label="Decrease quantity") -
+            span.quantity 1
+            button.quantity-btn(aria-label="Increase quantity") +
+          span(role="cell", class="product-total") 58,500,000₫
+          button.remove-item(aria-label="Remove item") ×
+        .order-item(role="row")
+          input(type="checkbox", id="item2", class="order-select", aria-label="Select Longines Watch")
+          img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/0d77b16859cc362f1fdb4a8114183937c4562bf6da0bb2ee5962ca492ebe5fe4?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="Longines Watch", class="product-image")
+          span(role="cell", class="product-name") Longines Watch - Men L2.821.5.57.7
+          span(role="cell", class="product-price") 58,500,000₫
+          .quantity-controls(role="cell")
+            button.quantity-btn(aria-label="Decrease quantity") -
+            span.quantity 1
+            button.quantity-btn(aria-label="Increase quantity") +
+          span(role="cell", class="product-total") 58,500,000₫
+          button.remove-item(aria-label="Remove item") ×
+
+      .order-summary
+        .summary-row
+          span Subtotal:
+          span 117,000,000₫
+        .summary-row
+          span Shipping:
+          span Free
+        .summary-row.total
+          span Total:
+          span 117,000,000₫
+
+      .action-buttons
+        button.back-button(aria-label="Go back") Back
+        button.confirm-button(aria-label="Confirm order") Confirm Order
