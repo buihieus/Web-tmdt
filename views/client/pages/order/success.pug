@@ -1,0 +1,26 @@
+extends ../../layouts/default.pug
+
+block main
+  link(rel="stylesheet", href="/css/success.css")
+  .order-confirmation
+    .confirmation-container
+      .confirmation-content
+        .success-icon
+          img(
+            alt="Order Confirmed" 
+            src="/img/tich.jpg"
+          )
+        .message-container
+          h1.title Đặt hàng thành công!
+          .confirmation-details
+            p.main-message Cảm ơn bạn đã đặt hàng tại TopZone!
+            .order-status
+              p Đơn hàng của bạn đã được xác nhận và chúng tôi đang tiến hành xử lý.
+              p Bạn sẽ nhận được thông báo khi đơn hàng được vận chuyển.
+            p.support-message Nếu cần hỗ trợ thêm, đừng ngần ngại liên hệ với chúng tôi.
+          p.thank-you Chúc bạn một ngày tuyệt vời!
+        button.done-button(
+          aria-label="Hoàn tất đặt hàng" 
+          type="button"
+          onclick="window.location.href='/'"
+        ) Xong

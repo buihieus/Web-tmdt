@@ -32,6 +32,7 @@ const seikoRoute = require("./seiko.route");
 const certinaRoute = require("./certina.route");
 const calvinkleinRoute = require("./calvinklein.route");
 const hublotRoute = require("./hublot.route");
+const successRoute = require("./success.route");
 
 // Import the payment routes
 const orderRoutes = require("./order.route.js");
@@ -74,6 +75,7 @@ module.exports = (app) => {
   app.use('/certina', certinaRoute);
   app.use('/calvinklein', calvinkleinRoute);
   app.use('/hublot', hublotRoute);
+  app.use('/success', successRoute);
   
   app.use(cartmiddleware.cartId);
   app.use('/cart', cartRoute);
