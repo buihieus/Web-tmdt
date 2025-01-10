@@ -1,6 +1,12 @@
 extends ../../layouts/default.pug
 
 block main
+  - 
+    // Hàm định dạng giá
+    function formatPrice(value) {
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
   link(rel="stylesheet", href="/css/product.css")
   section.trending-section(aria-labelledby="trending-title")
     h2#trending-title.section-title #{categoryName}
@@ -21,8 +27,8 @@ block main
                 .featured-badge Nổi bật
               h3.product-title #{product.title}
               .price-container
-                span.product-price(aria-label=`Current price: $${Math.ceil(product.price * (100 - product.discountPercentage) / 100)} dollars`) $#{Math.ceil(product.price * (100 - product.discountPercentage) / 100)}
-                span.original-price(aria-label=`Original price: $${product.price} dollars`) $#{product.price}
+                span.product-price(aria-label=`Current price: ₫${formatPrice(Math.ceil(product.price * (100 - product.discountPercentage) / 100))}`) ₫#{formatPrice(Math.ceil(product.price * (100 - product.discountPercentage) / 100))}
+                span.original-price(aria-label=`Original price: ₫${formatPrice(product.price)}`) ₫#{formatPrice(product.price)}
             form(
               action=`/cart/add/${product.id}`
               method="POST"
@@ -42,5 +48,3 @@ block main
         ) #{page}
       if currentPage < totalPages
         a.page-link(href=`?page=${currentPage + 1}` aria-label="Next page") Tiếp
-
-
