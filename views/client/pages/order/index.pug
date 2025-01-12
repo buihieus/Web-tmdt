@@ -6,18 +6,18 @@ block main
       h1#payment-title.payment-title Chọn Phương Thức Thanh Toán
       
       .payment-methods
-        button.payment-method-item(aria-label="Pay with Cash on Delivery")
+        button.payment-method-item(aria-label="Pay with Cash on Delivery" onclick="selectPaymentMethod('cod')")
           img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/a996efd6f9e26debc2ba5635d07f0207ba7359e277012b7152a4acf6bd3f0545?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
           span.payment-text Thanh Toán Khi Nhận Hàng
-        button.payment-method-item(aria-label="Pay with Momo E-Wallet" onclick="selectMomoPayment()")
+        button.payment-method-item(aria-label="Pay with Momo E-Wallet" onclick="selectPaymentMethod('momo')")
           img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/cd8bea25960f90cd4b3b6b37c50b82d5cad20f74c5298f04c51b3063bf73c2f8?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
           span.payment-text Ví Điện Tử Momo
 
       .payment-methods
-        button.payment-method-item(aria-label="Pay with VNPay E-Wallet")
+        button.payment-method-item(aria-label="Pay with VNPay E-Wallet" onclick="selectPaymentMethod('vnpay')")
           img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/67702fe6bb98046efb8ef11ed4e0487d87bff766e073a523cce13e0e7bb4104e?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
           span.payment-text Ví Điện Tử VNPay
-        button.payment-method-item(aria-label="Pay with Credit/Debit Card")
+        button.payment-method-item(aria-label="Pay with Credit/Debit Card" onclick="selectPaymentMethod('card')")
           img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/337dcc7d0038608e2243c2437be46f958982385bcf04b54e6139f2578027bfe8?placeholderIfAbsent=true&apiKey=f09d242d1ab24219b7bd88d8780e4a1c", alt="", class="payment-icon")
           span.payment-text Thẻ Tín Dụng/Ghi Nợ
 
@@ -33,15 +33,8 @@ block main
           .order-header-details
             span(role="columnheader") Tổng Cộng
         
-        // Lặp qua các sản phẩm trong cartDetail.products
         each item in cartDetail.products
           .order-item(role="row")
-            input(
-              type="checkbox"
-              id=`item${item.product_id}`
-              class="order-select"
-              aria-label=`Chọn ${item.title || 'Sản phẩm không xác định'}`
-            )
             img(
               src=item.thumbnail || '#'
               alt=item.title || 'Sản phẩm không xác định'
@@ -49,12 +42,8 @@ block main
             )
             span(role="cell", class="product-name") #{item.title || 'Sản phẩm không xác định'}
             span(role="cell", class="product-price") #{item.price || '0₫'}₫
-            .quantity-controls(role="cell")
-              button.quantity-btn(aria-label="Giảm số lượng") -
-              span.quantity #{item.quantity}
-              button.quantity-btn(aria-label="Tăng số lượng") +
+            span(role="cell", class="product-quantity") #{item.quantity}
             span(role="cell", class="product-total") #{item.totalPrice}₫
-            button.remove-item(aria-label="Xóa sản phẩm") 
 
       .order-summary
         .summary-row
@@ -82,29 +71,49 @@ block main
 
       .action-buttons
         button.back-button(aria-label="Quay lại") Quay lại
-        button.confirm-button(aria-label="Tiến hành thanh toán" onclick="proceedToPayment()") Tiến Hành Thanh Toán
+        button.confirm-button.hidden#confirm-payment-button(aria-label="Tiến hành thanh toán") Tiến Hành Thanh Toán
 
-      // JavaScript để xử lý sự kiện
+      // JavaScript xử lý sự kiện
       script.
-        function proceedToPayment() {
-          // Lấy số tiền từ phần tổng cộng
-          const totalAmountText = document.querySelector('.summary-row.total span:last-child').textContent.trim();
-          
-          // Xử lý chuỗi để lấy giá trị số
-          const totalAmount = totalAmountText.replace('₫', '').replace(/\./g, '').trim(); // Xóa ký tự ₫ và dấu chấm
-          
-          // Kiểm tra giá trị tổng cộng
-          if (parseInt(totalAmount) < 1000) {
-            alert("Số tiền thanh toán phải lớn hơn 1000 VND.");
-            return;
+        function selectPaymentMethod(method) {
+          const confirmButton = document.getElementById('confirm-payment-button');
+          confirmButton.classList.remove('hidden');
+
+          switch (method) {
+            case 'cod':
+              confirmButton.textContent = 'Xác Nhận Thanh Toán Khi Nhận Hàng';
+              confirmButton.onclick = () => alert('Phương thức COD đã được chọn!');
+              window.location.href = '/success';
+              break;
+            case 'momo':
+              confirmButton.textContent = 'Xác Nhận Thanh Toán Online (Momo)';
+              confirmButton.onclick = () => proceedToPayment('momo');
+              break;
+            case 'vnpay':
+              confirmButton.textContent = 'Xác Nhận Thanh Toán Online (VNPay)';
+              confirmButton.onclick = () => proceedToPayment('vnpay');
+              break;
+            case 'card':
+              confirmButton.textContent = 'Xác Nhận Thanh Toán Online (Thẻ)';
+              confirmButton.onclick = () => proceedToPayment('card');
+              break;
+            default:
+              confirmButton.classList.add('hidden');
           }
-          if (parseInt(totalAmount) > 50000000) {
-            alert("Số tiền thanh toán phải nhỏ hơn 50 triệu VND.");
+        }
+
+        function proceedToPayment(method) {
+          const totalAmountText = document.querySelector('.summary-row.total span:last-child').textContent.trim();
+          const totalAmount = totalAmountText.replace('₫', '').replace(/\./g, '').trim();
+
+          if (parseInt(totalAmount) < 1000) {
+            alert('Số tiền thanh toán phải lớn hơn 1000 VND.');
             return;
           }
 
           const paymentData = {
-            amount: totalAmount, // Sử dụng giá trị tổng cộng
+            amount: totalAmount,
+            method: method,
           };
 
           fetch('/payment', {
@@ -116,35 +125,52 @@ block main
           })
           .then(response => response.json())
           .then(data => {
-            console.log(data); // Xử lý dữ liệu trả về từ server
             if (data && data.payUrl) {
-              window.location.href = data.payUrl; // Chuyển hướng đến trang thanh toán
+              window.location.href = data.payUrl; // Điều hướng đến trang thanh toán
             } else {
               console.error('Không có URL thanh toán trong phản hồi:', data);
             }
           })
           .catch(error => {
-            console.error('Error:', error);
+            console.error('Lỗi:', error);
           });
         }
 
-      style
-        | .input-group {
-        |   margin-bottom: 15px;
-        | }
-        | .input-group label {
-        |   display: block;
-        |   margin-bottom: 5px;
-        |   font-weight: bold;
-        | }
-        | .input-group input {
-        |   width: 100%;
-        |   padding: 10px;
-        |   border: 1px solid #ccc;
-        |   border-radius: 5px;
-        |   box-sizing: border-box;
-        | }
-        | .input-group input:focus {
-        |   border-color: #007bff;
-        |   outline: none;
-        | }
+      style.
+        .payment-section{
+          text-align:center;
+        }
+        .hidden {
+          display: none;
+        }
+        .customer-info {
+          margin-top: 20px;
+          padding: 15px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+        }
+        .input-group {
+          margin-bottom: 15px;
+        }
+        .input-group label {
+          font-weight: bold;
+          margin-bottom: 5px;
+          display: block;
+        }
+        .input-group input {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+        .input-group input:focus {
+          border-color: #007bff;
+          outline: none;
+        }
+        .product-image {
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          margin-right: 10px;
+        }
